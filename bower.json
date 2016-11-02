@@ -1,0 +1,24 @@
+{
+  "name": "goop-static",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Andrew Martin <andrew@believelabs.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./src/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "3.3.6"
+  },
+  "resolutions": {
+    "bootstrap": "3.3.6"
+  }
+}
