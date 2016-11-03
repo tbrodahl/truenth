@@ -2,6 +2,7 @@
 
 var gutils = require('gulp-util'),
 gulp = require('gulp'),
+path = require('path'),
 production = gutils.env.production || process.env.NODE_ENV === 'production',
 config = require('./config'),
 tasks = config.tasks,
@@ -94,9 +95,52 @@ gulp.task('cssnano', ['sass'], function () {
   .pipe(gulp.dest(tasks.cssnano.dest));
 });
 
-gulp.task('watch', function () {
+// gulp.task('iconfont', function(){
+//   gulp.src(['./src/assets/iconsvg/*.svg'], { base: './src/assets' })
+//   .pipe($.iconfontCss({
+//     fontName: 'custom-icons',
+//     path: './src/assets/iconsvg/template.scss',
+//     targetPath: '../../../src/assets/iconsvg/_icons.scss',
+//     fontPath: '/fonts/icons/'
+//   }))
+//   .pipe($.iconfont({
+//     fontName: 'custom-icons'
+//   }))
+//   .pipe(gulp.dest('./dist/fonts/icons'));
+// });
+
+gulp.task('svgstore', function () {
+  var svgs = gulp
+  .src(tasks.svgstore.src)
+  .pipe($.svgmin(function (file) {
+    var prefix = path.basename(file.relative, path.extname(file.relative));
+    return {
+      plugins: [{
+        cleanupIDs: {
+          prefix: prefix + '-',
+          minify: true
+        }
+      }]
+    }
+  }))
+  .pipe($.svgstore({ inlineSvg: true }));
+
+  function fileContents (filePath, file) {
+    return file.contents.toString();
+  }
+
+  return gulp
+  .src(tasks.svgstore.pugSrc)
+  .pipe($.inject(svgs, { transform: fileContents }))
+  .pipe(gulp.dest(tasks.svgstore.dest));
+});
+
+gulp.task('watch', [], function () {
   $.watch(tasks.sass.src, function () {
     runSequence(['sass']);
+  });
+  $.watch(tasks.svgstore.src, function () {
+    runSequence(['svgstore', 'pug']);
   });
   $.watch(tasks.pug.watch, function () {
     runSequence(['pug']);
@@ -107,6 +151,7 @@ gulp.task('watch', function () {
 var buildTasks = [
   'copy',
   'images',
+  'svgstore',
   'pug',
   'sass',
   'cssnano'

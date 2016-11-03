@@ -1,3 +1,6 @@
 dist
 node_modules
 src/assets/components
+
+src/assets/iconsvg/_icons.scss
+src/templates/partial/_inline-svg.pug

@@ -13,4 +13,10 @@ html.no-js(lang='')
     //if lt IE 8
       p.browserupgrade
         | You are using an outdated browser. Please a(href='http://browsehappy.com/') upgrade your browser to improve your experience.
+    block upper
+      include ../partial/upper_banner
     block content
+    svg(width="30", height="13")
+      use(xlink:href="#arrow-right")
+    block footer
+      include ../partial/layout/footer

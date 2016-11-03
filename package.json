@@ -9,13 +9,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.1.2",
     "autoprefixer": "^6.5.1",
     "browser-sync": "^2.17.5",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
+    "gulp-consolidate": "^0.2.0",
     "gulp-cssnano": "^2.1.2",
     "gulp-extname": "^0.2.2",
+    "gulp-iconfont": "^8.0.1",
+    "gulp-iconfont-css": "^2.1.0",
     "gulp-imagemin": "^3.1.0",
+    "gulp-inject": "^4.1.0",
     "gulp-load-plugins": "^1.4.0",
     "gulp-notify": "^2.2.0",
     "gulp-postcss": "^6.2.0",
@@ -23,8 +28,11 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.2.0",
+    "gulp-svgmin": "^1.2.3",
+    "gulp-svgstore": "^6.1.0",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.10",
+    "path": "^0.12.7",
     "run-sequence": "^1.2.2"
   }
 }

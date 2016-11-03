@@ -39,6 +39,11 @@ module.exports = {
         '!./src/assets/styles/lib/sprites/*', '!./src/assets/styles/lib/iconFont/*', '!./src/assets/styles/lib/svg/*', '!./src/assets/styles/lib/_svg.{sass,scss}', './src/assets/styles/**/*.{sass,scss}'
       ],
       dest: './dist/styles'
+    },
+    svgstore: {
+      src: './src/assets/iconsvg/*.svg',
+      dest: './src/templates/partial',
+      pugSrc: './src/assets/iconsvg/_inline-svg.pug'
     }
   }
 };
