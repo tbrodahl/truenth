@@ -16,9 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "3.3.7"
-  },
-  "resolutions": {
-    "bootstrap": "3.3.6"
+    "bootstrap": "v4.0.0-alpha.2",
+    "include-media": "^1.4.8"
   }
 }

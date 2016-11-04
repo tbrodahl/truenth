@@ -3,6 +3,7 @@
 var gutils = require('gulp-util'),
 gulp = require('gulp'),
 path = require('path'),
+mergeStream = require('merge-stream'),
 production = gutils.env.production || process.env.NODE_ENV === 'production',
 config = require('./config'),
 tasks = config.tasks,
@@ -40,12 +41,17 @@ gulp.task('clean', function () {
 });
 
 gulp.task('copy', function() {
-  return gulp.src('./src/assets/fonts/**')
+  var fonts = gulp.src('./src/assets/fonts/**')
   .pipe(gulp.dest('./dist/fonts'));
+  var jQuery = gulp.src('./src/assets/components/jquery/dist/jquery.min.js')
+  .pipe(gulp.dest('./dist/scripts'));
+
+  return mergeStream(fonts, jQuery);
 });
 
 gulp.task('images', function () {
   return gulp.src(tasks.images.src)
+  .pipe($.imagemin())
   .pipe(gulp.dest(tasks.images.dest));
 });
 
@@ -87,6 +93,18 @@ gulp.task('pug', function () {
     stream: true
   }));
 });
+
+gulp.task('coffee', function () {
+  return gulp.src(tasks.coffee.src, {read: false})
+  .pipe($.browserify({
+    transform: ['coffeeify'], extensions: ['.coffee']
+  }))
+  .on('error', handleErrors)
+  .pipe($.concat('app.js'))
+  .pipe($.if(production, $.uglify()))
+  .pipe(gulp.dest(tasks.coffee.dest))
+});
+
 
 gulp.task('cssnano', ['sass'], function () {
   return gulp.src(tasks.cssnano.main)
@@ -145,6 +163,9 @@ gulp.task('watch', [], function () {
   $.watch(tasks.pug.watch, function () {
     runSequence(['pug']);
   });
+  $.watch(tasks.coffee.watch, function () {
+    runSequence(['coffee']);
+  });
   browserSync(tasks.browserSync);
 });
 
@@ -154,6 +175,7 @@ var buildTasks = [
   'svgstore',
   'pug',
   'sass',
+  'coffee',
   'cssnano'
 ];
 
@@ -165,6 +187,31 @@ gulp.task('build', function () {
   return runSequence(
     ['clean'], buildTasks
   );
+});
+
+var publisher = $.awspublish.create({
+  profile: 'default',
+  params: {
+    Bucket: 'truenth'
+  }
+});
+
+var headers = {
+  'Cache-Control': 'max-age=0, no-transform, public'
+};
+
+gulp.task('publish', function() {
+  return gulp.src('./dist/**')
+  .pipe(publisher.publish(headers))
+  .on('error', function(err) {
+    return console.error('failed to publish err code: ', err.statusCode, 'error:', err);
+  })
+  .pipe(publisher.sync())
+  .pipe(publisher.cache())
+  .pipe($.awspublish.reporter({
+    states: ['create', 'update', 'delete']
+  }))
+  .pipe($.notify('files published'));
 });
 
 gulp.task('default', ['build', 'watch']);

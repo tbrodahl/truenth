@@ -1,3 +1,5 @@
+include ../mixins/index
+
 doctype html
 html.no-js(lang='')
   head
@@ -7,16 +9,24 @@ html.no-js(lang='')
 
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+    <script>window.jQuery || document.write('<script src="/scripts/jquery.min.js"><\/script>')</script>
+
     link(rel='apple-touch-icon', href='apple-touch-icon.png')
     link(rel='stylesheet', href='/styles/app.css')
+
   body
     //if lt IE 8
       p.browserupgrade
         | You are using an outdated browser. Please a(href='http://browsehappy.com/') upgrade your browser to improve your experience.
     block upper
       include ../partial/upper_banner
-    block content
-    svg(width="30", height="13")
-      use(xlink:href="#arrow-right")
+    main.main
+      block header
+        include ../partial/layout/header
+      block content
     block footer
       include ../partial/layout/footer
+
+    script(src='/scripts/app.js')

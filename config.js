@@ -18,6 +18,14 @@ module.exports = {
     clean: {
       src: './dist'
     },
+    coffee: {
+      src: './src/assets/scripts/index.coffee',
+      dest: './dist/scripts',
+      watch: [
+        './src/assets/scripts/*.{coffee}',
+        './src/assets/scripts/**/*.{coffee}'
+      ],
+    },
     cssnano: {
       main: './dist/styles/app.css',
       dest: './dist/styles'
