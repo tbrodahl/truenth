@@ -49,9 +49,20 @@ gulp.task('copy', function() {
   return mergeStream(fonts, jQuery);
 });
 
+
+gulp.task('concat', function () {
+  return gulp.src(tasks.concat.src)
+  .pipe($.concat('vendor.js'))
+  .pipe($.if(production, $.uglify()))
+  .on('error', handleErrors)
+  .pipe($.if(production, $.rename('vendor.min.js')))
+  .pipe(gulp.dest(tasks.concat.dest));
+});
+
 gulp.task('images', function () {
   return gulp.src(tasks.images.src)
-  .pipe($.imagemin())
+  // .pipe($.imagemin())
+  .on('error', handleErrors)
   .pipe(gulp.dest(tasks.images.dest));
 });
 
@@ -154,6 +165,9 @@ gulp.task('svgstore', function () {
 });
 
 gulp.task('watch', [], function () {
+  $.watch(tasks.images.src, function () {
+    runSequence(['images']);
+  });
   $.watch(tasks.sass.src, function () {
     runSequence(['sass']);
   });

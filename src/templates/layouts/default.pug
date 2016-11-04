@@ -1,5 +1,8 @@
 include ../mixins/index
 
+block vars
+  - var bodyClass = 'default'
+
 doctype html
 html.no-js(lang='')
   head
@@ -15,11 +18,15 @@ html.no-js(lang='')
 
     link(rel='apple-touch-icon', href='apple-touch-icon.png')
     link(rel='stylesheet', href='/styles/app.css')
+    <!--[if lte IE 6]>
+    <style>#top, #bottom, #left, #right { display: none; }</style>
+    <![endif]-->
 
-  body
+  body(class='page-' + bodyClass)
     //if lt IE 8
       p.browserupgrade
         | You are using an outdated browser. Please a(href='http://browsehappy.com/') upgrade your browser to improve your experience.
+    include ../partial/page-border
     block upper
       include ../partial/upper_banner
     main.main
@@ -29,4 +36,5 @@ html.no-js(lang='')
     block footer
       include ../partial/layout/footer
 
+    script(src='/scripts/vendor.js')
     script(src='/scripts/app.js')

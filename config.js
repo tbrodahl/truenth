@@ -26,13 +26,17 @@ module.exports = {
         './src/assets/scripts/**/*.{coffee}'
       ],
     },
+    concat: {
+      src: ['./src/assets/components/lodash/dist/lodash.js'],
+      dest: './dist/scripts'
+    },
     cssnano: {
       main: './dist/styles/app.css',
       dest: './dist/styles'
     },
     images: {
       src: [
-        '!./src/assets/images/sprite.png', '!./src/assets/images/sprite/**/*', './src/assets/images/*', './src/assets/images/**/*'
+        '!./src/assets/images/sprite.png', '!./src/assets/images/sprite/**/*', './src/assets/images/**'
       ],
       watch: ['./src/assets/images/**'],
       dest: './dist/images'

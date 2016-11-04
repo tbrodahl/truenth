@@ -1,4 +1,29 @@
 extends ../templates/layouts/default
 
+block vars
+  - var bodyClass = 'home'
+
 block content
-  p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  .home-intro
+    .intro
+      h1.intro__main Welcome to TrueNTH
+      p.intro__sub We are here to help you navigate your <br /> prostate cancer journey.
+      a.intro__down
+        +svg('caret-down-teal', 29, 16)
+    .module-inclusiveness
+      .module-inclusiveness__head.accent-heading Object N<em>o</em>13: Inclusiveness
+      p.module-inclusiveness__copy TrueNTH is a collective approach to improving quality of life before, during, and after treatment for prostate cancer.
+      .more-arrow
+        a.more-arrow__link.more-arrow--teal(href="#")
+          | More About TrueNTH
+          +svg('arrow-right-teal', 29, 12)
+      .photo-grid-container
+        .photo-grid
+          a(href='#').photo-grid__item
+            img(src="/images/square-photo-grid-item.jpg")
+          a(href='#').photo-grid__item
+            img(src="/images/square-photo-grid-item.jpg")
+          a(href='#').photo-grid__item
+            img(src="/images/square-photo-grid-item.jpg")
+          a(href='#').photo-grid__item
+            img(src="/images/square-photo-grid-item.jpg")

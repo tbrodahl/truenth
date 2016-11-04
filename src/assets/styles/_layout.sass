@@ -1,0 +1,167 @@
+// global elements
+
+%default-link
+  &:hover
+    cursor: pointer
+    text-decoration: none
+
+a
+  @extend %default-link
+
+$upper-banner-height: 75px
+
+.upper-banner
+  height: $upper-banner-height
+  text-align: center
+  background: $teal
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  z-index: 10
+
+  .is-upper-banner-closed &
+    display: none
+
+  &__text
+    color: #FFF
+    display: block
+    +fz(21px, 75px)
+    font-weight: 500
+    margin: 0
+    svg
+      margin-left: 5px
+
+    &:hover
+      color: #FFF
+
+  &__close
+    position: absolute
+    right: 20px
+    top: 50%
+    margin-top: -10px
+
+$content-border-width: 30px
+// $content-border-color: #FFF
+$content-border-color: red
+
+.main
+  top: $upper-banner-height
+  padding-top: $content-border-width
+  position: relative
+  z-index: 1
+
+  .is-upper-banner-closed &
+    top: 0
+
+$header-height: 160px
+
+.header
+  @extend .clearfix
+  padding: 50px
+  position: relative
+
+  +media-breakpoint-up(sm)
+    height: $header-height
+
+  > div
+    a
+      display: inline-block
+
+  &__menu
+    float: left
+
+    a
+      position: relative
+      padding-right: 50px
+
+    svg
+      margin-left: 5px
+      position: absolute
+      top: 13px
+      right: 15px
+
+  &__meta
+    float: right
+
+    a
+      margin-left: 10px
+
+  .logo
+    position: absolute
+    left: 50%
+    margin-left: -109px
+
+.page-border
+  position: fixed
+  background: #FFF
+  z-index: 100
+
+  &__top,
+  &__bottom
+    left: 0
+    right: 0
+    height: $content-border-width
+
+    .is-scrolled &,
+    .is-upper-banner-closed &
+      top: 0
+
+  &__left,
+  &__right
+    top: $upper-banner-height
+    bottom: 0
+    width: $content-border-width
+
+    .is-scrolled &,
+    .is-upper-banner-closed &
+      top: 0
+
+  &__left
+    left: 0
+
+  &__right
+    right: 0
+
+  &__top
+    top: $upper-banner-height
+
+  &__bottom
+    bottom: 0
+
+body.page-home
+  background: transparent url('/images/truck-bg.jpg') no-repeat scroll center top
+  background-size: cover
+
+.home-intro
+  padding-top: $header-height
+  margin-top: -$header-height
+
+  .intro
+    text-align: center
+    padding: 75px 0 0
+
+    +media('>sm')
+      padding-bottom: 600px
+
+    &__main
+      +fz(38px, 1)
+      margin: 0 0 30px
+      font-weight: bold
+
+    &__sub
+      margin: 0
+      +fz(28px, 34px)
+
+    &__down
+      display: block
+      margin-top: 50px
+
+.module-inclusiveness
+  @extend .outer-container
+  color: #FFF
+
+  &__copy
+    +fz(38px, 50px)
+    margin: 0
+    text-align: center

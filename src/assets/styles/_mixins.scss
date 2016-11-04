@@ -1,0 +1,49 @@
+@mixin fz($size, $lh: $size * 1.6) {
+  font-size: $size;
+  line-height: $lh;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+$base-img-path: '/images/';
+
+@mixin bg-retina($file, $width, $height, $type: 'png') {
+  background-image: url(#{$base-img-path}#{$file}.#{$type});
+  background-size: #{$width}px #{$height}px;
+  width: #{$width}px;
+  height: #{$height}px;
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (-moz-min-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx){
+    & {
+      background-image: url(#{$base-img-path}#{$file}@2x.#{$type});
+      -webkit-background-size: #{$width}px #{$height}px;
+      -moz-background-size: #{$width}px #{$height}px;
+      -o-background-size: #{$width}px #{$height}px;
+      background-size: #{$width}px #{$height}px;
+    }
+  }
+}
+
+@mixin pseudo-el($width, $height, $color) {
+  &:after {
+    background: $color;
+    content: '';
+    display: block;
+    height: #{$height}px;
+    width: #{$width}px;
+  }
+}

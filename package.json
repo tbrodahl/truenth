@@ -20,6 +20,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-consolidate": "^0.2.0",
     "gulp-cssnano": "^2.1.2",
+    "gulp-data": "^1.2.1",
     "gulp-extname": "^0.2.2",
     "gulp-iconfont": "^8.0.1",
     "gulp-iconfont-css": "^2.1.0",

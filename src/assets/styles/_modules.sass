@@ -1,0 +1,80 @@
+%default-transition
+  transition: all 0.3s ease-out
+
+.logo
+  display: block
+  +bg-retina('logo', 218, 95)
+
+.button
+  @extend %default-transition
+  text-transform: uppercase
+
+  &--small
+    padding: 15px
+    max-height: 45px
+
+  &--white
+    background: #FFF
+    color: $teal
+    +fz(16px, 1)
+
+    &:hover
+      background: $gray-lighter
+
+.accent-heading
+  +pseudo-el(233, 1, rgba(255, 255, 255, .5))
+  color: $teal-light
+  text-align: center
+  text-transform: uppercase
+  font-weight: 500
+  +fz(16px, 1)
+  padding-bottom: 25px
+  letter-spacing: 2.9px
+
+  &::after
+    position: relative
+    margin: 25px 0 0
+    left: 50%
+    margin-left: -233/2 + px
+
+
+  em
+    +fz(9px, 1)
+    font-style: normal
+    position: relative
+    top: 1px
+    vertical-align: super
+
+.outer-container
+  @extend .container
+
+.more-arrow
+  @extend .clearfix
+  text-transform: uppercase
+  text-align: center
+  padding: 30px 0
+
+  svg
+    margin-left: 10px
+
+  &--teal
+    color: $teal
+
+    &:hover
+      color: $teal-light
+
+.photo-grid-container
+  @extend .outer-container
+
+.photo-grid
+  +make-row
+
+  &__item
+    +make-col
+    +make-col-span(3)
+    display: block
+    padding-left: 0
+    padding-right: 0
+
+    img
+      width: 100%
