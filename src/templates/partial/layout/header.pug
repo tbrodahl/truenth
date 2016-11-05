@@ -1,8 +1,8 @@
 header.header
   .header__menu
-    a.menu.button.button--small.button--white
+    a.menu.button.button--small.button--white.js-nav-menu-toggle
+      +svg('hamburger-teal', 15, 11)
       | Menu
-      +svg('hamburger-teal', 23, 17)
   a.logo(href="/")
   .header__meta
     a.menu.button.button--small.button--white(href="#") Log In

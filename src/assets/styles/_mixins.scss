@@ -47,3 +47,10 @@ $base-img-path: '/images/';
     width: #{$width}px;
   }
 }
+
+@mixin make-col-mobile-spacing() {
+  @include media('<md') {
+    padding-left: $content-border-size-mobile + 10px;
+    padding-right: $content-border-size-mobile + 10px;
+  }
+}

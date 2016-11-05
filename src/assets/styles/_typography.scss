@@ -14,17 +14,9 @@
 //     font-style: $font-style;
 //   }
 // }
-//
-// @include font-face( brandon_grotesque, 'brandon-grotesque-regular', 400, normal );
-// @include font-face( brandon_grotesque, 'brandon-grotesque-medium',  500, normal );
-// @include font-face( brandon_text,      'brandon-text-regular',      400, normal );
-// @include font-face( brandon_text,      'brandon-text-bold',         700, normal );
-// @include font-face( caslon,            'caslon-book',               400, normal );
-// @include font-face( caslon,            'caslon-book-italic',        400, italic );
-// @include font-face( caslon,            'caslon-medium',             500, normal );
-// @include font-face( caslon,            'caslon-medium-italic',      500, italic );
-// @include font-face( caslon,            'caslon-bold',               700, normal );
-// @include font-face( caslon,            'caslon-bold-italic',        700, italic );
+// //
+// @include font-face( akzidenz_grotesk_medium, 'AkzidGroBEMd', 500, normal );
+// @include font-face( akzidenz_grotesk_regular, 'AkzidGroBEReg', 400, normal );
 
 %text-copy {
   @include fz(16px, 24px);

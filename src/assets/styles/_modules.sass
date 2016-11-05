@@ -1,25 +1,44 @@
+$default-transition-speed: 0.3s
+$default-transition-easing: ease-out
+
+$default-transition: all $default-transition-speed $default-transition-easing
+
 %default-transition
-  transition: all 0.3s ease-out
+  transition: $default-transition
 
 .logo
   display: block
   +bg-retina('logo', 218, 95)
 
+  .is-scrolled &
+    +bg-retina('logo', 132, 58)
+
 .button
   @extend %default-transition
+  +fz(16px, 1)
   text-transform: uppercase
 
   &--small
-    padding: 15px
+    +fz(12px, 1)
+    padding: 10px
     max-height: 45px
 
   &--white
     background: #FFF
     color: $teal
-    +fz(16px, 1)
 
     &:hover
       background: $gray-lighter
+
+  &--scrolled
+    display: none
+    .is-scrolled &
+      display: block
+
+  &--not-scrolled
+    display: block
+    .is-scrolled &
+      display: none
 
 .accent-heading
   +pseudo-el(233, 1, rgba(255, 255, 255, .5))

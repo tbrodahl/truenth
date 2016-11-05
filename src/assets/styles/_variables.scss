@@ -1,5 +1,13 @@
 // SITE VARIABLES
 
+$content-border-size: 30px;
+$content-border-size-mobile: 20px;
+$content-border-color: red;
+
+// side nav
+$side-nav-width: 495px;
+$side-nav-width-mobile: 250px;
+
 // -- colors
 
 $teal: #7C959E;
@@ -32,10 +40,11 @@ $teal-light: #A9B2B7;
 //
 // Grayscale and brand colors for use across Bootstrap.
 
-$gray-dark:                 #373a3c !default;
-$gray:                      #55595c !default;
-$gray-light:                #818a91 !default;
-$gray-lighter:              #eceeef !default;
+$gray-dark:                 #4A4A4A;
+$gray:                      rgb(210, 209, 197);
+$gray-alt:                  #BFC0BD;
+$gray-light:                rgba(210, 209, 197, 0.2);
+$gray-lighter:              #F7F7F7;
 $gray-lightest:             #f7f7f9 !default;
 
 $brand-primary:             #0275d8 !default;
@@ -118,9 +127,9 @@ $grid-breakpoints: (
   // Medium screen / tablet
   md: 768px,
   // Large screen / desktop
-  lg: 992px,
+  lg: 900px,
   // Extra large screen / wide desktop
-  xl: 1200px
+  xl: 900px
 );
 
 
@@ -131,8 +140,8 @@ $grid-breakpoints: (
 $container-max-widths: (
   sm: 576px,
   md: 720px,
-  lg: 940px,
-  xl: 1140px
+  lg: 880px,
+  xl: 880px
 );
 
 // Grid columns
@@ -147,7 +156,7 @@ $grid-gutter-width:          1.875rem !default; // 30px
 //
 // Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:     Arial, "Helvetica Neue", Helvetica, sans-serif;
+$font-family-sans-serif:     'akzidenz_grotesk_medium', Arial, "Helvetica Neue", Helvetica, sans-serif;
 $font-family-serif:          Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:      Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:           $font-family-sans-serif !default;

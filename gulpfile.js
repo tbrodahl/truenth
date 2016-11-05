@@ -185,6 +185,7 @@ gulp.task('watch', [], function () {
 
 var buildTasks = [
   'copy',
+  'concat',
   'images',
   'svgstore',
   'pug',
