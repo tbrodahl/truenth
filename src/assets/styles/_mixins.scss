@@ -54,3 +54,13 @@ $base-img-path: '/images/';
     padding-right: $content-border-size-mobile + 10px;
   }
 }
+
+@mixin make-button($bgColor, $textColor, $bgColorHover: darken($bgColor, 15%), $colorHover: $textColor) {
+  background: $bgColor;
+  color: $textColor;
+
+  &:hover {
+    background: $bgColorHover;
+    color: $colorHover;
+  }
+}

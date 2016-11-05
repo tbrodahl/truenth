@@ -13,22 +13,35 @@ $default-transition: all $default-transition-speed $default-transition-easing
   .is-scrolled &
     +bg-retina('logo', 132, 58)
 
+  +media('<md')
+    +bg-retina('logo', 132, 58)
+
 .button
   @extend %default-transition
   +fz(16px, 1)
   text-transform: uppercase
+  padding: 15px
+  letter-spacing: 3px
+
+  // sizes
+
+  &--large
+    +fz(22px, 1)
+    max-height: 50px
+    padding: 15px 28px
 
   &--small
     +fz(12px, 1)
     padding: 10px
     max-height: 45px
 
-  &--white
-    background: #FFF
-    color: $teal
+  // colors
 
-    &:hover
-      background: $gray-lighter
+  &--teal
+    +make-button($teal, white)
+
+  &--white
+    +make-button(white, $teal, $gray-lighter)
 
   &--scrolled
     display: none
@@ -91,9 +104,38 @@ $default-transition: all $default-transition-speed $default-transition-easing
   &__item
     +make-col
     +make-col-span(3)
-    display: block
     padding-left: 0
     padding-right: 0
+    position: relative
+    color: #FFF
+    margin: 0
 
-    img
-      width: 100%
+    &:hover
+      color: #FFF
+
+      .photo-grid__img
+        display: none
+      .photo-grid__img--hovered
+        display: block
+      strong
+        opacity: 1
+
+    strong
+      transition: opacity $default-transition-speed $default-transition-easing
+      opacity: 0
+      position: absolute
+      bottom: 15px
+      padding: 0 15px
+      span
+        display: block
+
+  &__img
+    &--hovered
+      display: none
+
+.button-callout
+  padding: 40px 0
+  text-align: center
+
+  > a.button
+    display: inline-block

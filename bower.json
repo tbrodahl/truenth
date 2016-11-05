@@ -18,6 +18,7 @@
   "dependencies": {
     "bootstrap": "v4.0.0-alpha.2",
     "include-media": "^1.4.8",
-    "lodash": "^4.16.6"
+    "lodash": "^4.16.6",
+    "imagesloaded": "^4.1.1"
   }
 }

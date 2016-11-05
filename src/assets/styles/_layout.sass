@@ -3,6 +3,9 @@
 *
   box-sizing: border-box
 
+img
+  max-width: 100%
+
 %default-link
   &:hover
     cursor: pointer
@@ -26,6 +29,9 @@ $upper-banner-height-mobile: 50px
 
   +media('<lg')
     height: $upper-banner-height-mobile
+
+  +media('<md')
+    display: none
 
   .is-upper-banner-closed &
     display: none
@@ -54,6 +60,7 @@ $upper-banner-height-mobile: 50px
 .main
   top: $upper-banner-height
   padding-top: $content-border-size
+  padding-bottom: $content-border-size + 50
   position: relative
   z-index: 1
 
@@ -67,6 +74,18 @@ $upper-banner-height-mobile: 50px
 $header-height: 160px
 $header-height-mobile: 92px
 
+=header-scrolled-styles
+  padding: 25px 60px
+  position: fixed
+  top: 0
+  height: $header-height-mobile
+  background: #fff
+  z-index: 15
+
+=logo-scrolled-styles
+  margin-left: -66px
+  margin-top: -8px
+
 .header
   @extend .clearfix
   padding: 30px 50px
@@ -75,13 +94,17 @@ $header-height-mobile: 92px
   height: $header-height
   z-index: 10
 
+  +media('<md')
+    +header-scrolled-styles
+    padding-left: 15px
+    padding-right: 15px
+
   .is-scrolled &
-    padding: 25px
-    position: fixed
-    top: 0
-    height: $header-height-mobile
-    background: #fff
-    z-index: 15
+    +header-scrolled-styles
+
+    +media('<md')
+      padding-left: 15px
+      padding-right: 15px
 
   > div
     a
@@ -89,6 +112,10 @@ $header-height-mobile: 92px
       position: relative
       .is-scrolled &
         background: $gray-light
+
+      +media('<md')
+        background: $gray-light
+
 
   &__menu
     float: left
@@ -113,8 +140,10 @@ $header-height-mobile: 92px
     margin-left: -109px
 
     .is-scrolled &
-      margin-left: -66px
-      margin-top: -8px
+      +logo-scrolled-styles
+
+    +media('<md')
+      +logo-scrolled-styles
 
 .page-border
   position: fixed
@@ -162,6 +191,9 @@ $header-height-mobile: 92px
 
     +media('<lg')
       top: $upper-banner-height-mobile
+
+    +media('<md')
+      display: none
 
     .is-scrolled &,
     .is-upper-banner-closed &
@@ -261,11 +293,12 @@ figure.nav-overlay
         color: $teal
         text-decoration: underline
 
-body.page-home
-  background: transparent url('/images/truck-bg.jpg') no-repeat scroll center top
-  background-size: cover
+// body.page-home
+//   background: transparent url('/images/truck-bg.jpg') no-repeat scroll center top
+//   background-size: cover
 
 .home-intro
+  background: #32373C
 
   +media('>lg')
     padding-top: $header-height
@@ -277,7 +310,16 @@ body.page-home
     +make-col-span(12)
     text-align: center
     padding-top: $header-height + 40px
-    padding-bottom: 300px
+    margin-bottom: 50px
+
+    +media('<md')
+      padding-top: 40px
+
+    img
+      position: absolute
+      left: 0
+      top: 0
+      z-index: 0
 
     +media('>md', '<=lg')
       padding-bottom: 300px
@@ -285,14 +327,29 @@ body.page-home
     +media('>lg')
       padding-bottom: 350px
 
+    &__content
+      width: 100%
+      text-align: center
+      position: relative
+      z-index: 10
+      margin-bottom: 50px
+
     &__main
       +fz(38px, 1)
       margin: 0 0 30px
       font-weight: bold
 
+      +media('<md')
+        +fz(24px, 1)
+        margin: 0 0 10px
+
     &__sub
       margin: 0
       +fz(28px, 34px)
+
+      +media('<md')
+        +fz(14px, 1)
+        margin: 0 0 10px
 
     &__down
       display: block

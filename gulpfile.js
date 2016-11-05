@@ -61,7 +61,7 @@ gulp.task('concat', function () {
 
 gulp.task('images', function () {
   return gulp.src(tasks.images.src)
-  // .pipe($.imagemin())
+  .pipe($.imagemin())
   .on('error', handleErrors)
   .pipe(gulp.dest(tasks.images.dest));
 });

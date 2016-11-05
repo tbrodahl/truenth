@@ -27,7 +27,10 @@ module.exports = {
       ],
     },
     concat: {
-      src: ['./src/assets/components/lodash/dist/lodash.js'],
+      src: [
+        './src/assets/components/lodash/dist/lodash.js',
+        './src/assets/components/imagesloaded/imagesloaded.pkgd.js'
+      ],
       dest: './dist/scripts'
     },
     cssnano: {
