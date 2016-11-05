@@ -64,3 +64,8 @@ $base-img-path: '/images/';
     color: $colorHover;
   }
 }
+
+@mixin hero-bg($img, $position: center top, $ext: 'jpg'){
+  background: transparent url('/images/#{$img}.#{$ext}') no-repeat scroll $position;
+  background-size: cover;
+}

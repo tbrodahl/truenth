@@ -50,7 +50,7 @@ gulp.task('copy', function() {
 });
 
 
-gulp.task('concat', function () {
+gulp.task('concat', ['modernizr'], function () {
   return gulp.src(tasks.concat.src)
   .pipe($.concat('vendor.js'))
   .pipe($.if(production, $.uglify()))
@@ -116,6 +116,11 @@ gulp.task('coffee', function () {
   .pipe(gulp.dest(tasks.coffee.dest))
 });
 
+gulp.task('modernizr', ['sass'], function () {
+  return gulp.src(tasks.modernizr.src)
+  .pipe($.modernizr('modernizr-custom.js', tasks.modernizr.settings))
+  .pipe(gulp.dest(tasks.modernizr.dest));
+});
 
 gulp.task('cssnano', ['sass'], function () {
   return gulp.src(tasks.cssnano.main)
@@ -191,7 +196,8 @@ var buildTasks = [
   'pug',
   'sass',
   'coffee',
-  'cssnano'
+  'cssnano',
+  'modernizr'
 ];
 
 if (production) {

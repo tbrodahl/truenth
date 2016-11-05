@@ -28,6 +28,7 @@ module.exports = {
     },
     concat: {
       src: [
+        './src/assets/scripts/lib/modernizr-custom.js',
         './src/assets/components/lodash/dist/lodash.js',
         './src/assets/components/imagesloaded/imagesloaded.pkgd.js'
       ],
@@ -43,6 +44,24 @@ module.exports = {
       ],
       watch: ['./src/assets/images/**'],
       dest: './dist/images'
+    },
+    modernizr: {
+      settings: {
+        options: [
+          'setClasses',
+          'addTest',
+          'html5printshiv',
+          'testProp',
+          'fnBind'
+        ],
+        tests: ['touchevents', 'pointerevents', 'forcetouch']
+      },
+      src: [
+        'scripts/*.js',
+        './src/assets/styles/**/*.{sass,scss}',
+        './src/assets/styles/*.{sass,scss}'
+      ],
+      dest: './src/assets/scripts/lib'
     },
     pug: {
       src: ['./src/content/**/*.pug'],

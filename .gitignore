@@ -4,5 +4,6 @@ src/assets/components
 
 src/assets/iconsvg/_icons.scss
 src/templates/partial/_inline-svg.pug
+src/assets/scripts/lib
 
 .awspublish-*
