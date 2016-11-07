@@ -40,13 +40,15 @@ gulp.task('clean', () => {
   return del(tasks.clean.src);
 });
 
-gulp.task('copy', () => {
+gulp.task('copy', ['symbols'], () => {
   const fonts = gulp.src('./src/assets/fonts/**')
+  .pipe(gulp.dest('./dist/fonts'));
+  const symbols = gulp.src('./src/assets/font-kit/dist/fonts/**')
   .pipe(gulp.dest('./dist/fonts'));
   const jQuery = gulp.src('./src/assets/components/jquery/dist/jquery.min.js')
   .pipe(gulp.dest('./dist/scripts'));
 
-  return mergeStream(fonts, jQuery);
+  return mergeStream(fonts, symbols, jQuery);
 });
 
 
@@ -93,6 +95,66 @@ gulp.task('sass', ['symbols'], () => {
   }));
 });
 
+
+/**
+ * Font settings
+ */
+const
+  // set name of your symbol font
+  fontName = 'symbols',
+  // set class name in your CSS
+  className = 's',
+  // you can also choose 'foundation-style'
+  template = 'fontawesome-style',
+  // you can also choose 'symbol-font-16px.sketch'
+  sketchFileName = './src/assets/font-kit/symbol-font-16px.sketch'
+
+/**
+ * Recommended to get consistent builds when watching files
+ * See https://github.com/nfroidure/gulp-iconfont
+ */
+const timestamp = Math.round(Date.now() / 1000)
+
+gulp.task('symbols', () =>
+  gulp.src(sketchFileName)
+    .pipe($.sketch({
+      export: 'artboards',
+      formats: 'svg'
+    }))
+    .pipe($.iconfont({
+      fontName,
+      formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
+      timestamp,
+      log: () => {} // suppress unnecessary logging
+    }))
+    .on('glyphs', (glyphs) => {
+      const options = {
+        className,
+        fontName,
+        fontPath: '../fonts/', // set path to font (from your CSS file if relative)
+        glyphs: glyphs.map(mapGlyphs)
+      }
+      gulp.src(`./src/assets/font-kit/templates/${ template }.css`)
+        .pipe($.consolidate('lodash', options))
+        .pipe($.rename({ basename: fontName }))
+        .pipe(gulp.dest('./src/assets/font-kit/dist/css'))
+        .pipe($.rename('symbols.scss'))
+        .pipe(gulp.dest('./src/assets/font-kit/dist/scss'))
+        // set path to export your scss
+
+      // if you don't need sample.html, remove next 4 lines
+      gulp.src(`./src/assets/font-kit/templates/${ template }.html`)
+        .pipe($.consolidate('lodash', options))
+        .pipe($.rename({ basename: 'sample' }))
+        .pipe(gulp.dest('./src/assets/font-kit/dist/')) // set path to export your sample HTML
+    })
+    .pipe(gulp.dest('./src/assets/font-kit/dist/fonts')) // set path to export your fonts
+)
+
+const mapGlyphs = (glyph) => {
+  return { name: glyph.name, codepoint: glyph.unicode[0].charCodeAt(0) }
+}
+
 gulp.task('pug', () => {
   return gulp.src(tasks.pug.src)
   .pipe($.pug({
@@ -129,20 +191,6 @@ gulp.task('cssnano', ['sass'], () => {
   .pipe($.rename('app.min.css'))
   .pipe(gulp.dest(tasks.cssnano.dest));
 });
-
-// gulp.task('iconfont', () => {
-//   gulp.src(['./src/assets/iconsvg/*.svg'], { base: './src/assets' })
-//   .pipe($.iconfontCss({
-//     fontName: 'custom-icons',
-//     path: './src/assets/iconsvg/template.scss',
-//     targetPath: '../../../src/assets/iconsvg/_icons.scss',
-//     fontPath: '/fonts/icons/'
-//   }))
-//   .pipe($.iconfont({
-//     fontName: 'custom-icons'
-//   }))
-//   .pipe(gulp.dest('./dist/fonts/icons'));
-// });
 
 gulp.task('svgstore', () => {
   const svgs = gulp
@@ -211,62 +259,6 @@ gulp.task('build', () => {
     ['clean'], buildTasks
   );
 });
-
-/**
- * Font settings
- */
-const
-  // set name of your symbol font
-  fontName = 'symbols',
-  // set class name in your CSS
-  className = 's',
-  // you can also choose 'foundation-style'
-  template = 'fontawesome-style',
-  // you can also choose 'symbol-font-16px.sketch'
-  sketchFileName = './src/assets/font-kit/symbol-font-16px.sketch'
-
-/**
- * Recommended to get consistent builds when watching files
- * See https://github.com/nfroidure/gulp-iconfont
- */
-const timestamp = Math.round(Date.now() / 1000)
-
-gulp.task('symbols', () =>
-  gulp.src(sketchFileName)
-    .pipe($.sketch({
-      export: 'artboards',
-      formats: 'svg'
-    }))
-    .pipe($.iconfont({
-      fontName,
-      formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
-      timestamp,
-      log: () => {} // suppress unnecessary logging
-    }))
-    .on('glyphs', (glyphs) => {
-      const options = {
-        className,
-        fontName,
-        fontPath: '/fonts/', // set path to font (from your CSS file if relative)
-        glyphs: glyphs.map(mapGlyphs)
-      }
-      gulp.src(`./src/assets/font-kit/templates/${ template }.scss`)
-        .pipe($.consolidate('lodash', options))
-        .pipe($.rename({ basename: fontName }))
-        .pipe(gulp.dest('./src/assets/font-kit/dist/scss/')) // set path to export your scss
-
-      // if you don't need sample.html, remove next 4 lines
-      gulp.src(`./src/assets/font-kit/templates/${ template }.html`)
-        .pipe($.consolidate('lodash', options))
-        .pipe($.rename({ basename: 'sample' }))
-        .pipe(gulp.dest('./src/assets/font-kit/dist/')) // set path to export your sample HTML
-    })
-    .pipe(gulp.dest('./src/assets/font-kit/dist')) // set path to export your fonts
-)
-
-const mapGlyphs = (glyph) => {
-  return { name: glyph.name, codepoint: glyph.unicode[0].charCodeAt(0) }
-}
 
 const publisher = $.awspublish.create({
   profile: 'default',

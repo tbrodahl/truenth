@@ -42,8 +42,12 @@ $upper-banner-height-mobile: 50px
     +fz(21px, 75px)
     font-weight: 500
     margin: 0
-    svg
+    figure
+      @extend .s
+      @extend .s-arrow-right
+      +fz(30px, 75px)
       margin-left: 5px
+      top: 5px
 
     +media('<lg')
       +fz(14px, $upper-banner-height-mobile)
@@ -56,6 +60,16 @@ $upper-banner-height-mobile: 50px
     right: 20px
     top: 50%
     margin-top: -10px
+
+    figure
+      @extend .s
+      @extend .s-close-x
+      color: #fff
+      +fz(35px, 1)
+      top: -10px
+
+      &:hover
+        opacity: 0.5
 
 .main
   top: $upper-banner-height
@@ -123,10 +137,14 @@ $header-height-mobile: 92px
     a
       padding-left: 35px
 
-    svg
+    figure
+      @extend .s
+      @extend .s-hamburger
+      +fz(20px, 1)
+      color: $teal
       position: absolute
-      top: 10px
-      left: 10px
+      top: 6px
+      left: 8px
 
   &__meta
     float: right
