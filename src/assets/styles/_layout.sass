@@ -128,7 +128,8 @@ $header-height-mobile: 92px
         background: $gray-light
 
       +media('<md')
-        background: $gray-light
+        .is-scrolled &
+          background: $gray-light
 
 
   &__menu
@@ -181,6 +182,12 @@ $header-height-mobile: 92px
 .header--logged-in
   +header-scrolled-styles
   +hero-bg('header-logged-in')
+
+  +media('<md')
+    +header-scrolled-styles
+    +hero-bg('header-logged-in')
+    padding-left: 15px
+    padding-right: 15px
 
   .logo
     +bg-retina('logo-white', 124, 54)
@@ -280,6 +287,10 @@ html
 html.is-nav-expanded
   left: $side-nav-width
   overflow: hidden
+  -webkit-overflow-scrolling: none
+
+  body
+    overflow: hidden
 
   +media('<md')
     left: $side-nav-width-mobile
@@ -377,6 +388,9 @@ figure.nav-overlay
 .home-intro
   background: #32373C
 
+  .is-logged-in &
+    padding-top: $header-height-mobile
+
   +media('>lg')
     padding-top: $header-height
     margin-top: -$header-height
@@ -461,16 +475,25 @@ figure.nav-overlay
     margin: 0
     text-align: center
 
+    +media('<md')
+      +fz(30px, 40px)
+
   &__head
     +fz(38px, 50px)
     font-weight: 500
     text-align: center
     margin: 0 0 40px
 
+    +media('<md')
+      +fz(30px, 40px)
+
   &__body
     +fz(24px, 33px)
     margin: 0 0 25px
     text-align: center
+
+    +media('<md')
+      +fz(20px, 27px)
 
 
 .module-wrap
