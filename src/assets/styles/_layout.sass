@@ -47,7 +47,7 @@ $upper-banner-height-mobile: 50px
       @extend .s-arrow-right
       +fz(30px, 75px)
       margin-left: 5px
-      top: 5px
+      top: 7px
 
     +media('<lg')
       +fz(14px, $upper-banner-height-mobile)
@@ -94,7 +94,7 @@ $header-height-mobile: 92px
   top: 0
   height: $header-height-mobile
   background: #fff
-  z-index: 15
+  z-index: 1500
 
 =logo-scrolled-styles
   margin-left: -66px
@@ -136,6 +136,7 @@ $header-height-mobile: 92px
 
     a
       padding-left: 35px
+      min-height: 32px
 
     figure
       @extend .s
@@ -148,6 +149,9 @@ $header-height-mobile: 92px
 
   &__meta
     float: right
+
+    +media('<md')
+      display: none
 
     a
       margin-left: 10px
@@ -162,6 +166,53 @@ $header-height-mobile: 92px
 
     +media('<md')
       +logo-scrolled-styles
+
+// logged in state
+.header
+  &--logged-in
+    display: none
+
+    .is-showing-logged-in &
+      display: block !important
+
+.is-showing-logged-in .header
+  display: none
+
+.header--logged-in
+  +header-scrolled-styles
+  +hero-bg('header-logged-in')
+
+  .logo
+    +bg-retina('logo-white', 124, 54)
+    +logo-scrolled-styles
+    margin-left: -62px
+
+  .is-scrolled &
+    +hero-bg('header-logged-in')
+
+    .logo
+      margin-left: -62px
+
+    div > a
+      background: #FFF
+
+  .header__menu
+    a
+      padding: 12px 9px 10px 13px
+      .is-scrolled &
+        background: #FFF
+      &:hover
+        background: $gray
+      figure
+        position: relative
+        top: auto
+        left: auto
+
+  .button
+    min-height: 32px
+
+.is-logged-in .main
+  z-index: 100
 
 .page-border
   position: fixed
@@ -238,7 +289,7 @@ figure.nav-overlay
   position: fixed
   width: 100%
   height: 100%
-  z-index: 99
+  z-index: 99999
   display: none
   visibility: hidden
   cursor: not-allowed
@@ -507,3 +558,35 @@ figure.nav-overlay
 
         &:hover
           color: #FFF
+
+.admin-controls
+  position: fixed
+  left: 35px
+  bottom: 35px
+  z-index: 10000
+  padding: 25px
+  background: rgba(255,255,255,0.8)
+  // display: none
+  h3
+    +fz(15px, 1)
+    text-align: center
+    letter-spacing: 5px
+    text-transform: uppercase
+    margin: 0 0 25px
+
+  .is-showing-admin &
+    display: block
+
+  button
+    display: block
+    width: 100%
+    margin: 5px 0
+    +fz(10px, 1)
+    padding: 10px
+
+  figure
+    @extend .s
+    @extend .s-close-x
+    position: absolute
+    right: 5px
+    top: 5px

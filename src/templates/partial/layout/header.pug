@@ -7,3 +7,19 @@ header.header
   .header__meta
     a.menu.button.button--small.button--white(href="#") Log In
     a.menu.button.button--small.button--white(href="#") Sign Up
+
+header.header.header--logged-in
+  .header__menu
+    a.menu.button.button--small.button--white.js-nav-menu-toggle
+      figure
+  a.logo(href="/")
+  .header__meta
+    img.header__meta__avatar(src="/images/avatar-stub.png")
+    .btn-group
+      a.menu.button.button--small.button--white.profile-toggle.button.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+        figure
+      .dropdown-menu
+        a.dropdown-item(href='#') My Profile
+        a.dropdown-item(href='#') Decision Support Tool
+        a.dropdown-item(href='#') Symptom Tracker Tool
+        a.dropdown-item(href='#') Log Out

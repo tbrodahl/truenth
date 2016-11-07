@@ -11,4 +11,5 @@ module.exports = class WindowScroll
       else
         $('html').addClass('is-scrolled')
     , 0
-    $(window).on('scroll', checkScroll)
+    $(window).on('scroll.checkScroll', checkScroll)
+    .trigger('scroll.checkScroll')
