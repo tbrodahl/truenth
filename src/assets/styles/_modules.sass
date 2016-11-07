@@ -281,6 +281,11 @@ $default-transition: all $default-transition-speed $default-transition-easing
     padding: 25px
     text-transform: uppercase
 
+    +media('<md')
+      +fz(20px, 24px)
+      padding-right: 15px
+      padding-left: 15px
+
     span
       position: relative
       display: inline-block

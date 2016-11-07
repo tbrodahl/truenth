@@ -546,6 +546,7 @@ figure.nav-overlay
       min-height: none
 
 .footer
+  @extend .clearfix
   background: #000
   text-align: center
   figure
@@ -554,9 +555,13 @@ figure.nav-overlay
 
   &__logo-area
     padding: 35px 0
+    float: left
+    width: 100%
 
 .nav-list
   @extend .list-unstyled
+  +make-col
+  +make-col-span(12)
   margin: 0 0 20px
 
   &:last-of-type
@@ -568,6 +573,11 @@ figure.nav-overlay
     letter-spacing: 1.5px
     text-transform: uppercase
     margin: 0 20px
+
+    +media('<md')
+      +fz(14px, 18px)
+      display: block
+      margin: 0 0 10px
 
     a
       @extend %default-transition
@@ -582,34 +592,34 @@ figure.nav-overlay
         &:hover
           color: #FFF
 
-.admin-controls
-  position: fixed
-  left: 35px
-  bottom: 35px
-  z-index: 10000
-  padding: 25px
-  background: rgba(255,255,255,0.8)
-  // display: none
-  h3
-    +fz(15px, 1)
-    text-align: center
-    letter-spacing: 5px
-    text-transform: uppercase
-    margin: 0 0 25px
-
-  .is-showing-admin &
-    display: block
-
-  button
-    display: block
-    width: 100%
-    margin: 5px 0
-    +fz(10px, 1)
-    padding: 10px
-
-  figure
-    @extend .s
-    @extend .s-close-x
-    position: absolute
-    right: 5px
-    top: 5px
+// .admin-controls
+//   position: fixed
+//   left: 35px
+//   bottom: 35px
+//   z-index: 10000
+//   padding: 25px
+//   background: rgba(255,255,255,0.8)
+//   // display: none
+//   h3
+//     +fz(15px, 1)
+//     text-align: center
+//     letter-spacing: 5px
+//     text-transform: uppercase
+//     margin: 0 0 25px
+//
+//   .is-showing-admin &
+//     display: block
+//
+//   button
+//     display: block
+//     width: 100%
+//     margin: 5px 0
+//     +fz(10px, 1)
+//     padding: 10px
+//
+//   figure
+//     @extend .s
+//     @extend .s-close-x
+//     position: absolute
+//     right: 5px
+//     top: 5px

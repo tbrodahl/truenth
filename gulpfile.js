@@ -281,8 +281,8 @@ gulp.task('publish', () => {
   .pipe(publisher.cache())
   .pipe($.awspublish.reporter({
     states: ['create', 'update', 'delete']
-  }))
-  .pipe($.notify('files published'));
+  }));
+  // .pipe($.notify('files published'));
 });
 
 gulp.task('default', ['build', 'watch']);
