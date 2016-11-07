@@ -1,6 +1,8 @@
 module.exports = class WindowScroll
   constructor: ->
+    @bindScroll()
 
+  bindScroll: ->
     checkScroll = _.debounce ->
       if $('.upper-banner').outerHeight() > 0 then offset =  $('.upper-banner').outerHeight() else offset = 0
       # console.log 'offset', offset

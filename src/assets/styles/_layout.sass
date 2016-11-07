@@ -74,7 +74,7 @@ $upper-banner-height-mobile: 50px
 .main
   top: $upper-banner-height
   padding-top: $content-border-size
-  padding-bottom: $content-border-size + 50
+  padding-bottom: $content-border-size
   position: relative
   z-index: 1
 
@@ -89,7 +89,7 @@ $header-height: 160px
 $header-height-mobile: 92px
 
 =header-scrolled-styles
-  padding: 25px 60px
+  padding: 25px 80px
   position: fixed
   top: 0
   height: $header-height-mobile
@@ -241,7 +241,7 @@ figure.nav-overlay
   z-index: 99
   display: none
   visibility: hidden
-  cursor: pointer
+  cursor: not-allowed
 
   .is-nav-expanded &
     display: block
@@ -299,17 +299,25 @@ figure.nav-overlay
     +media('<md')
       +fz(20px, 24px)
 
-    svg
-      position: relative
-      top: -3px
+    figure
+      @extend .s
+      @extend .s-arrow-right
+      opacity: 0
+      top: 4px
+      margin-left: 5px
 
     a
+      position: relative
       display: inline-block
 
       &:hover
         cursor: pointer
         color: $teal
         text-decoration: underline
+
+        figure
+          opacity: 1
+
 
 // body.page-home
 //   background: transparent url('/images/truck-bg.jpg') no-repeat scroll center top
@@ -321,6 +329,15 @@ figure.nav-overlay
   +media('>lg')
     padding-top: $header-height
     margin-top: -$header-height
+
+  .more-arrow > a
+    color: #FFF
+
+    figure
+      color: $teal
+
+    &:hover
+      color: $teal
 
   .intro
     +make-col
@@ -370,21 +387,62 @@ figure.nav-overlay
         margin: 0 0 10px
 
     &__down
+      color: $gray-dark
       display: block
       margin-top: 50px
+
+      figure
+        @extend .s
+        @extend .s-caret-down
+        +fz(30px, 1)
+
+        &:hover
+          color: $gray-alt
 
 .module
   @extend .outer-container
   +make-col-mobile-spacing
   color: #FFF
-  padding-top: 90px
+  padding: 90px 0
 
   &__copy
     +fz(38px, 50px)
     margin: 0
     text-align: center
 
-.full-module
+  &__head
+    +fz(38px, 50px)
+    font-weight: 500
+    text-align: center
+    margin: 0 0 40px
+
+  &__body
+    +fz(24px, 33px)
+    margin: 0 0 25px
+    text-align: center
+
+
+.module-wrap
+
+  &--theme-teal
+    background: $teal
+    color: #FFF
+
+    .accent-heading
+      color: $gray-alt
+
+    .more-arrow > a
+      color: #FFF
+
+      &:hover
+        color: $gray-dark
+
+  &--theme-gray
+    background: #5F676E
+    color: #FFF
+
+    .accent-heading
+      color: $gray-alt
 
   &--watch
     +hero-bg('Home-Video-Export', center center)
@@ -398,3 +456,54 @@ figure.nav-overlay
 
     +media('<md')
       min-height: 314px
+
+  &--confidence
+    +hero-bg('DS-Background', center center)
+    // min-height: 1089px
+
+    +media('<md')
+      min-height: none
+
+  &--symptom
+    +hero-bg('ST-Background', center center)
+    // min-height: 1089px
+
+    +media('<md')
+      min-height: none
+
+.footer
+  background: #000
+  text-align: center
+  figure
+    margin: 0
+    display: inline-block
+
+  &__logo-area
+    padding: 35px 0
+
+.nav-list
+  @extend .list-unstyled
+  margin: 0 0 20px
+
+  &:last-of-type
+    margin-bottom: 0
+
+  &__item
+    +fz(16px, 1)
+    display: inline-block
+    letter-spacing: 1.5px
+    text-transform: uppercase
+    margin: 0 20px
+
+    a
+      @extend %default-transition
+      color: #fff
+
+      &:hover
+        color: $gold-alt
+
+      .nav-list--lower &
+        color: $gold-alt
+
+        &:hover
+          color: #FFF

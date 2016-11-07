@@ -29,6 +29,7 @@ module.exports = {
     concat: {
       src: [
         './src/assets/scripts/lib/modernizr-custom.js',
+        './src/assets/components/easing/easing.js',
         './src/assets/components/lodash/dist/lodash.js',
         './src/assets/components/imagesloaded/imagesloaded.pkgd.js'
       ],

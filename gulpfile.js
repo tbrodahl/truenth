@@ -22,7 +22,7 @@ if (production) {
   process.env.NODE_ENV = 'production';
 }
 
-const handleErrors = () => {
+const handleErrors = function() {
   const args = Array.prototype.slice.call(arguments);
 
   // Send error to notification center with gulp-notify

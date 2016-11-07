@@ -6,7 +6,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
 %default-transition
   transition: $default-transition
 
-.s
+.s-animate
   // all icons
   @extend %default-transition
 
@@ -31,8 +31,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
 
   &--large
     +fz(22px, 1)
-    max-height: 50px
-    padding: 15px 28px
+    padding: 25px 30px
 
   &--small
     +fz(12px, 1)
@@ -57,6 +56,13 @@ $default-transition: all $default-transition-speed $default-transition-easing
     .is-scrolled &
       display: none
 
+%accent-heading-super
+  +fz(9px, 1)
+  font-style: normal
+  position: relative
+  top: 1px
+  vertical-align: super
+
 .accent-heading
   +pseudo-el(233, 1, rgba(255, 255, 255, .5))
   color: $teal-light
@@ -78,23 +84,38 @@ $default-transition: all $default-transition-speed $default-transition-easing
 
 
   em
-    +fz(9px, 1)
-    font-style: normal
-    position: relative
-    top: 1px
-    vertical-align: super
+    @extend %accent-heading-super
 
 .outer-container
   @extend .container
 
 .more-arrow
   @extend .clearfix
+  +fz(15px, 1)
+  letter-spacing: 3px
   text-transform: uppercase
   text-align: center
   padding: 30px 0
 
-  svg
-    margin-left: 10px
+  > a
+    @extend %default-transition
+    color: #FFF
+
+    &:hover
+      color: $gray
+
+  span
+    display: inline-block
+    position: relative
+    padding-right: 40px
+
+  figure
+    @extend .s
+    @extend .s-arrow-right
+    +fz(30px, 15px)
+    position: absolute
+    right: 0
+    top: -8px
 
   &--teal
     color: $teal
@@ -107,6 +128,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
 
 .photo-grid
   +make-row
+  width: 100%
 
   &__item
     +make-col
@@ -121,9 +143,11 @@ $default-transition: all $default-transition-speed $default-transition-easing
       color: #FFF
 
       .photo-grid__img
-        display: none
+        z-index: 0
       .photo-grid__img--hovered
         display: block
+        width: 100%
+        height: 100%
       strong
         opacity: 1
 
@@ -133,11 +157,16 @@ $default-transition: all $default-transition-speed $default-transition-easing
       position: absolute
       bottom: 15px
       padding: 0 15px
+      z-index: 10
       span
         display: block
 
   &__img
     &--hovered
+      position: absolute
+      left: 0
+      top: 0
+      z-index: 0
       display: none
 
 .button-callout
@@ -146,3 +175,169 @@ $default-transition: all $default-transition-speed $default-transition-easing
 
   > a.button
     display: inline-block
+
+.next-down
+  text-align: center
+
+  &__copy
+    +fz(24px, 32px)
+    padding: 50px 0 30px
+    margin: 0
+
+  figure
+    @extend .s
+    @extend .s-caret-down
+    +fz(30px, 1)
+    color: #fff
+
+.mini-boxes
+  // +make-row
+  display: flex
+  flex-wrap: wrap
+
+  &__item
+    // +make-col
+    +make-col-span(4)
+    padding: 0 $grid-gutter-width/2 $grid-gutter-width $grid-gutter-width/2
+    display: flex
+
+    +media('<md')
+      +make-col-span(6)
+
+.mini-box
+  background: $gray-darker
+  color: #FFF
+  padding: 20px
+
+  &__head
+    +fz(16px, 19px)
+    color: $gold
+    letter-spacing: 1.2px
+    margin: 0 0 10px
+    text-transform: uppercase
+
+  &__copy
+    margin: 0
+    +fz(19px, 23px)
+
+.icon-box
+  @extend .clearfix
+  background: $gray-darker
+  padding: 20px 20px 20px 135px
+  margin: 0 10px 0 0
+  position: relative
+  min-height: 130px
+  max-height: 100%
+
+  strong, h4, span
+    display: block
+
+  &__subhead
+    +fz(16px, 1)
+    font-weight: 500
+    letter-spacing: 2.9px
+    text-transform: uppercase
+    margin: 6px 0 10px
+    color: $teal-light
+
+    .icon-box--theme-two &
+      color: #D2D1C5
+
+    em
+      @extend %accent-heading-super
+      font-size: 10px
+
+  &__head
+    text-transform: uppercase
+    font-weight: 700
+    letter-spacing: 1.14px
+
+  &__lowhead
+    color: #BCC2A6
+    +fz(13px, 17px)
+    text-transform: uppercase
+    letter-spacing: 2.35px
+
+    .icon-box--theme-two &
+      color: $teal-light
+
+  &__icon
+    position: absolute
+    left: 20px
+    top: 20px
+
+  &__button
+    @extend %default-transition
+    +fz(22px, 1)
+    letter-spacing: 5px
+    color: #FFF
+    display: block
+    padding: 25px
+    text-transform: uppercase
+
+    span
+      position: relative
+      display: inline-block
+      padding-right: 45px
+
+      figure
+        @extend .s
+        @extend .s-arrow-right
+        +fz(30px, 1)
+        position: absolute
+        margin-left: 5px
+        color: $teal-dark
+        top: -5px
+        right: 0
+
+    &:hover
+      color: $gray-lighter
+
+    &--main
+      background: $teal
+      margin: 0 0 10px
+      height: 72px
+
+      &:hover
+        background: darken($teal, 15%)
+
+        figure
+          color: #fff
+
+    &--sub
+      +fz(12px, 1)
+      letter-spacing: 2px
+      padding: 20px
+      background: $gold-alt
+
+      &:hover
+        background: darken($gold-alt, 15%)
+
+.icon-box-wrap
+  display: flex
+  $small-size: 2.75
+  +media('<md')
+    display: block
+
+  &__main
+    +make-col-span(12 - $small-size)
+
+    +media('<md')
+      +make-col-span(12)
+      margin-bottom: 10px
+
+  &__sub
+    +make-col-span($small-size)
+
+    +media('<md')
+      +make-col-span(12)
+      display: flex
+      .icon-box__button
+        float: left
+        width: 50%
+        margin-bottom: 0
+        text-align: center
+        &--main
+          margin-right: 10px
+        &--sub
+          padding-top: 30px

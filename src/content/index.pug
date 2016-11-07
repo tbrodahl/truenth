@@ -11,14 +11,13 @@ block content
         h1.intro__main Welcome to TrueNTH
         p.intro__sub We are here to help you navigate your <br /> prostate cancer journey.
         a.intro__down
-          +svg('caret-down-teal', 29, 16)
+          figure
     .module
-      .module__head.accent-heading Object N<em>o</em>13: Inclusiveness
+      .accent-heading Object N<em>o</em>13: Inclusiveness
       p.module__copy TrueNTH is a collective approach to improving quality of life before, during, and after treatment for prostate cancer.
       .more-arrow
         a.more-arrow__link.more-arrow--teal(href="#")
-          | More About TrueNTH
-          +svg('arrow-right-teal', 29, 12)
+          span More About TrueNTH <figure></figure>
       .photo-grid-container
         .photo-grid
           figure.photo-grid__item
@@ -60,15 +59,92 @@ block content
             img.photo-grid__img--hovered( src="/images/Home-People-David-Over.jpg")
       .button-callout
         a.button.button--large.button--teal(href="#") Join Us
-  .full-module.full-module--watch
+  .module-wrap.module-wrap--watch
     .button-callout
       a.button.button--large.button--teal(href="#") Watch
-  .module
-    .accent-heading Object N<em>o</em>12: Education
-    h3.module__head What is Prostate Cancer?
-    p.module__copy Prostate cancer is the second most common cancer in men.
-    p.module__copy The prostate is a gland located immediately below the bladder, in front of the bowels. The prostate makes fluid that is involved in sexual function.
-    p.module__copy 1 in 7 men will be diagnosed with prostate cancer in their lifetime.
-    a.more-arrow__link.more-arrow--teal(href="#")
-      | Prostate Cancer Facts
-      +svg('arrow-right-teal', 29, 12)
+  .module-wrap.module-wrap--theme-teal
+    .module
+      .accent-heading Object N<em>o</em>12: Education
+      h3.module__head What is Prostate Cancer?
+      p.module__body Prostate cancer is the second most common cancer in men.
+      p.module__body The prostate is a gland located immediately below the bladder, in front of the bowels. The prostate makes fluid that is involved in sexual function.
+      p.module__body 1 in 7 men will be diagnosed with prostate cancer in their lifetime.
+      .more-arrow
+        a.more-arrow__link(href="#")
+          span Prostate Cancer Facts <figure></figure>
+  .module-wrap.module-wrap--confidence
+    .module
+      .accent-heading Object N<em>o</em>4: Confident Decision Making
+      h3.module__head Men may have different stages of prostate cancer and have different treatment options available to them, these are some of the options...
+      .mini-boxes
+        .mini-boxes__item
+          .mini-box
+            h5.mini-box__head Active Surveillance
+            p.mini-box__copy Closely monitoring prostate cancer to determine if treatment is needed.
+        .mini-boxes__item
+          .mini-box
+            h5.mini-box__head Surgery
+            p.mini-box__copy Procedure to remove the prostate called prostatectomy.
+        .mini-boxes__item
+          .mini-box
+            h5.mini-box__head Radiotherapy
+            p.mini-box__copy Use of high-energy rays to destroy cancer cells.
+        .mini-boxes__item
+          .mini-box
+            h5.mini-box__head Hormone Therapy
+            p.mini-box__copy Lowering levels of hormones to help slow the growth of cancer.
+        .mini-boxes__item
+          .mini-box
+            h5.mini-box__head Systemic Therapy
+            p.mini-box__copy The use of medications to fight cancer cells throughout the body.
+      .next-down
+        p.next-down__copy We have tools to help you make the treatment<br/> choice that's right for you
+        figure
+      .icon-box-wrap
+        .icon-box-wrap__main.icon-box.icon-box--theme-compass
+          strong.icon-box__subhead Tool N<em>o</em>1: Post Diagnosis
+          h4.icon-box__head Decision Support
+          span.icon-box__lowhead Questionnaire / 20 Mins
+          +svg('DS-Compass', 92, 92, 'icon-box__icon')
+        .icon-box-wrap__sub.button-wrap
+          a.icon-box__button.icon-box__button--main(href="#")
+            span Start<figure></figure>
+          a.icon-box__button.icon-box__button--sub(href="#") More Information
+  .module-wrap.module-wrap--symptom
+    .module
+      .accent-heading Object N<em>o</em>4: Symptom Management
+      h3.module__head Once you've made a treatment choice, the rest of the journey is about managing the side effects.
+      .mini-boxes
+        .mini-boxes__item
+          .mini-box
+            h5.mini-box__head Bladder Incontinence
+            p.mini-box__copy Not being able to control your bladder.
+        .mini-boxes__item
+          .mini-box
+            h5.mini-box__head Sexual Health
+            p.mini-box__copy Physical and emotional changes to your sex life and erectile function.
+        .mini-boxes__item
+          .mini-box
+            h5.mini-box__head Fatigue
+            p.mini-box__copy Due to treatments for prostate cancer.
+      .next-down
+        p.next-down__copy We’ve created a tool to track your prostate cancer treatment<br /> side effects over time and provide personal guidance.
+        figure
+
+      .icon-box-wrap
+        .icon-box-wrap__main.icon-box.icon-box--theme-graph.icon-box--theme-two
+          strong.icon-box__subhead Tool N<em>o</em>2: Monitoring
+          h4.icon-box__head Symptom Tracker
+          span.icon-box__lowhead Questionnaire / 10 Mins
+          +svg('ST-Graph', 92, 92, 'icon-box__icon')
+        .icon-box-wrap__sub.button-wrap
+          a.icon-box__button.icon-box__button--main(href="#")
+            span Start<figure></figure>
+          a.icon-box__button.icon-box__button--sub(href="#") More Information
+  .module-wrap.module-wrap--theme-gray
+    .module
+      .accent-heading Object N<em>o</em>2: Community Participation
+      h3.module__head Everyone has a part to play in improving the prostate cancer journey.
+      p.module__body The way these tools work, the more people that join us, the better the tools will become for you and future generations.
+      .button-callout
+        a.button.button--large.button--teal(href="#") Join Us

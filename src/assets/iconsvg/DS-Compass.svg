@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="92px" height="92px" viewBox="0 0 92 92" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>DS-Compass</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="SVGs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DS-Compass">
+            <g id="Group" transform="translate(1.000000, 1.000000)">
+                <g id="Group-11" transform="translate(15.000000, 15.000000)" fill="#B5AFA7">
+                    <rect id="Rectangle-6" transform="translate(2.828427, 56.568542) rotate(-45.000000) translate(-2.828427, -56.568542) " x="-0.171572875" y="55.5685425" width="6" height="2"></rect>
+                    <rect id="Rectangle-6" transform="translate(56.568542, 2.828427) rotate(-45.000000) translate(-56.568542, -2.828427) " x="53.5685425" y="1.82842712" width="6" height="2"></rect>
+                </g>
+                <g id="Group-4" transform="translate(15.000000, 15.000000)" fill="#B2ADA6">
+                    <rect id="Rectangle-6" transform="translate(2.828427, 2.828427) rotate(-315.000000) translate(-2.828427, -2.828427) " x="-0.171572875" y="1.82842712" width="6" height="2"></rect>
+                    <rect id="Rectangle-6" transform="translate(56.568542, 56.568542) rotate(-315.000000) translate(-56.568542, -56.568542) " x="53.5685425" y="55.5685425" width="6" height="2"></rect>
+                </g>
+                <g id="Group-5" transform="translate(19.000000, 18.000000)" fill="#A9B2B7">
+                    <path d="M47,53 L41.5,32 L36,53 C37.6581482,52.2179422 39.5253091,51.7784783 41.5,51.7784783 C43.4746909,51.7784783 45.3418518,52.2179422 47,53 Z" id="Combined-Shape" transform="translate(41.500000, 42.500000) rotate(-225.000000) translate(-41.500000, -42.500000) "></path>
+                    <path d="M17,1 L11.5,22 L6,1 C7.65814823,1.78205784 9.52530911,2.22152167 11.5,2.22152167 C13.4746909,2.22152167 15.3418518,1.78205784 17,1 Z" id="Combined-Shape" transform="translate(11.500000, 11.500000) rotate(-225.000000) translate(-11.500000, -11.500000) "></path>
+                    <path d="M47,22 L41.5,1 L36,22 C37.6581482,21.2179422 39.5253091,20.7784783 41.5,20.7784783 C43.4746909,20.7784783 45.3418518,21.2179422 47,22 Z" id="Combined-Shape" transform="translate(41.500000, 11.500000) rotate(-315.000000) translate(-41.500000, -11.500000) "></path>
+                    <path d="M17,32 L11.5,53 L6,32 C7.65814823,32.7820578 9.52530911,33.2215217 11.5,33.2215217 C13.4746909,33.2215217 15.3418518,32.7820578 17,32 Z" id="Combined-Shape" transform="translate(11.500000, 42.500000) rotate(-315.000000) translate(-11.500000, -42.500000) "></path>
+                </g>
+                <g id="Group-6" transform="translate(39.000000, 5.000000)" fill="#7C959E">
+                    <path d="M11.499685,29.3316533 L6,0 L0.500315,29.3316533 C2.147843,28.4806085 4.01779543,28 6,28 C7.98220457,28 9.852157,28.4806085 11.499685,29.3316533 Z" id="Combined-Shape"></path>
+                    <path d="M11.499685,50.6683467 L6,80 L0.500315,50.6683467 C2.147843,51.5193915 4.01779543,52 6,52 C7.98220457,52 9.852157,51.5193915 11.499685,50.6683467 Z" id="Combined-Shape"></path>
+                </g>
+                <g id="Group-6" transform="translate(45.000000, 45.000000) rotate(-270.000000) translate(-45.000000, -45.000000) translate(39.000000, 5.000000)" fill="#7C959E">
+                    <path d="M11.499685,29.3316533 L6,-1.42108547e-14 L0.500315,29.3316533 C2.147843,28.4806085 4.01779543,28 6,28 C7.98220457,28 9.852157,28.4806085 11.499685,29.3316533 Z" id="Combined-Shape"></path>
+                    <path d="M11.499685,50.6683467 L6,80 L0.500315,50.6683467 C2.147843,51.5193915 4.01779543,52 6,52 C7.98220457,52 9.852157,51.5193915 11.499685,50.6683467 Z" id="Combined-Shape"></path>
+                </g>
+                <circle id="Oval" stroke="#B5AFA7" stroke-width="2" cx="45" cy="45" r="45"></circle>
+                <ellipse id="Oval" stroke="#AFABA3" stroke-width="5" cx="45" cy="45" rx="7" ry="7"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

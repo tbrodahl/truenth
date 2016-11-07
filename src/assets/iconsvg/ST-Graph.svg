@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="92px" height="92px" viewBox="0 0 92 92" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>ST-Graph</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="SVGs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ST-Graph">
+            <g id="Group-7" transform="translate(1.000000, 1.000000)">
+                <polyline id="Path-3" stroke="#D2D1C5" stroke-width="2" points="1 51.5080427 13.6218496 50.9210398 23.0458478 52.9113866 34.4601928 41.042488 46.0698619 42.9009009 61.4942764 34 70.2812812 35.2373958 75.69521 41.369746 80.0325374 48.7054777 89.6817509 52.354275"></polyline>
+                <polyline id="Path-2" stroke="#7C959E" stroke-width="2" points="-7.10542736e-15 41.6162109 11.894043 44.6464844 22.8935547 41 35.4731445 48.1679688 48.2333984 49.0019531 57.5649414 51.7539062 68.625 45.2670898 82.0341797 45.2670898 90.0810547 47.6762695"></polyline>
+                <circle id="Oval" stroke="#B5AFA7" stroke-width="2" cx="45" cy="45" r="45"></circle>
+                <rect id="Rectangle-9" fill="#BCC2A6" x="14" y="25" width="2" height="4"></rect>
+                <rect id="Rectangle-9" fill="#BCC2A6" x="26" y="25" width="2" height="4"></rect>
+                <rect id="Rectangle-9" fill="#BCC2A6" x="38" y="25" width="2" height="4"></rect>
+                <rect id="Rectangle-9" fill="#BCC2A6" x="50" y="25" width="2" height="4"></rect>
+                <rect id="Rectangle-9" fill="#BCC2A6" x="62" y="25" width="2" height="4"></rect>
+                <rect id="Rectangle-9" fill="#BCC2A6" x="74" y="25" width="2" height="4"></rect>
+                <rect id="Rectangle-9" fill="#BCC2A6" x="14" y="59" width="2" height="4"></rect>
+                <rect id="Rectangle-9" fill="#BCC2A6" x="26" y="59" width="2" height="4"></rect>
+                <rect id="Rectangle-9" fill="#BCC2A6" x="38" y="59" width="2" height="4"></rect>
+                <rect id="Rectangle-9" fill="#BCC2A6" x="50" y="59" width="2" height="4"></rect>
+                <rect id="Rectangle-9" fill="#BCC2A6" x="62" y="59" width="2" height="4"></rect>
+                <rect id="Rectangle-9" fill="#BCC2A6" x="74" y="59" width="2" height="4"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
