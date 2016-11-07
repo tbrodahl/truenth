@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?> 
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <font id="symbols" horiz-adv-x="512">
+    <font-face font-family="symbols"
+      units-per-em="512" ascent="512"
+      descent="0" />
+    <missing-glyph horiz-adv-x="0" />
+    <glyph glyph-name="arrow-right"
+      unicode="&#xEA01;"
+      horiz-adv-x="512" d=" M53.392241379 248.8793103L53.392241379 276.1206897L338.642241 276.1206897L338.642241 248.8793103z M339.183908 180.887931L339.183908 262.612069L447.850575 262.612069z M339.183908 344.1120689660001L339.183908 262.387931L447.850575 262.387931z" />
+    <glyph glyph-name="caret-down"
+      unicode="&#xEA02;"
+      horiz-adv-x="512" d=" M423.722519 365.395718058L442.722272 346.3959647000001L253.930589 157.604282L234.930836 176.604035z M60.277728153 346.3959647000001L79.2774815 365.395718058L268.069164 176.604035L249.069411 157.604282z" />
+    <glyph glyph-name="hamburger"
+      unicode="&#xEA03;"
+      horiz-adv-x="512" d=" M64 398H448V347.8823529H64V398z M64 281.058824H448V230.9411769H64V281.058824z M64 164.117647H448V113.9999999H64V164.117647z" />
+  </font>
+</defs>
+</svg>

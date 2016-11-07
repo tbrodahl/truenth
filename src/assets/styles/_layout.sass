@@ -355,26 +355,28 @@ figure.nav-overlay
       display: block
       margin-top: 50px
 
-.module-inclusiveness
+.module
   @extend .outer-container
   +make-col-mobile-spacing
   color: #FFF
+  padding-top: 90px
 
   &__copy
     +fz(38px, 50px)
     margin: 0
     text-align: center
 
-.module-watch
-  +hero-bg('Home-Video-Export', center center)
-  display: flex
-  align-items: center
-  min-height: 711px
-  justify-content: center
+.full-module
 
-  div
-    flex: 1
+  &--watch
+    +hero-bg('Home-Video-Export', center center)
+    display: flex
+    align-items: center
+    min-height: 711px
+    justify-content: center
 
+    div
+      flex: 1
 
-  +media('<md')
-    min-height: 314px
+    +media('<md')
+      min-height: 314px

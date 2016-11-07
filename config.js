@@ -16,7 +16,7 @@ module.exports = {
       }
     },
     clean: {
-      src: './dist'
+      src: ['./dist', './src/assets/font-kit/dist']
     },
     coffee: {
       src: './src/assets/scripts/index.coffee',

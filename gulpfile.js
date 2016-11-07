@@ -1,6 +1,6 @@
 'use strict';
 
-var gutils = require('gulp-util'),
+const gutils = require('gulp-util'),
 gulp = require('gulp'),
 path = require('path'),
 mergeStream = require('merge-stream'),
@@ -22,8 +22,8 @@ if (production) {
   process.env.NODE_ENV = 'production';
 }
 
-var handleErrors = function () {
-  var args = Array.prototype.slice.call(arguments);
+const handleErrors = () => {
+  const args = Array.prototype.slice.call(arguments);
 
   // Send error to notification center with gulp-notify
   $.notify.onError({
@@ -34,23 +34,23 @@ var handleErrors = function () {
 
   // Keep gulp from hanging on this task
   this.emit('end');
-};
+}
 
-gulp.task('clean', function () {
-  return del([tasks.clean.src]);
+gulp.task('clean', () => {
+  return del(tasks.clean.src);
 });
 
-gulp.task('copy', function() {
-  var fonts = gulp.src('./src/assets/fonts/**')
+gulp.task('copy', () => {
+  const fonts = gulp.src('./src/assets/fonts/**')
   .pipe(gulp.dest('./dist/fonts'));
-  var jQuery = gulp.src('./src/assets/components/jquery/dist/jquery.min.js')
+  const jQuery = gulp.src('./src/assets/components/jquery/dist/jquery.min.js')
   .pipe(gulp.dest('./dist/scripts'));
 
   return mergeStream(fonts, jQuery);
 });
 
 
-gulp.task('concat', ['modernizr'], function () {
+gulp.task('concat', ['modernizr'], () => {
   return gulp.src(tasks.concat.src)
   .pipe($.concat('vendor.js'))
   .pipe($.if(production, $.uglify()))
@@ -59,23 +59,24 @@ gulp.task('concat', ['modernizr'], function () {
   .pipe(gulp.dest(tasks.concat.dest));
 });
 
-gulp.task('images', function () {
+gulp.task('images', () => {
   return gulp.src(tasks.images.src)
   .pipe($.imagemin())
   .on('error', handleErrors)
   .pipe(gulp.dest(tasks.images.dest));
 });
 
-gulp.task('sass', function () {
+gulp.task('sass', ['symbols'], () => {
 
-  var autoprefixer = require('autoprefixer');
+  const autoprefixer = require('autoprefixer');
 
   return gulp.src(tasks.sass.main)
   .pipe($.sourcemaps.init())
   .pipe($.sass({
     includePaths: [
       './src/assets/components',
-      './src/assets/styles'
+      './src/assets/styles',
+      './src/assets/font-kit/dist/scss'
     ]
   }))
   .on('error', handleErrors)
@@ -92,7 +93,7 @@ gulp.task('sass', function () {
   }));
 });
 
-gulp.task('pug', function () {
+gulp.task('pug', () => {
   return gulp.src(tasks.pug.src)
   .pipe($.pug({
     locals: config,
@@ -105,7 +106,7 @@ gulp.task('pug', function () {
   }));
 });
 
-gulp.task('coffee', function () {
+gulp.task('coffee', () => {
   return gulp.src(tasks.coffee.src, {read: false})
   .pipe($.browserify({
     transform: ['coffeeify'], extensions: ['.coffee']
@@ -116,20 +117,20 @@ gulp.task('coffee', function () {
   .pipe(gulp.dest(tasks.coffee.dest))
 });
 
-gulp.task('modernizr', ['sass'], function () {
+gulp.task('modernizr', ['sass'], () => {
   return gulp.src(tasks.modernizr.src)
   .pipe($.modernizr('modernizr-custom.js', tasks.modernizr.settings))
   .pipe(gulp.dest(tasks.modernizr.dest));
 });
 
-gulp.task('cssnano', ['sass'], function () {
+gulp.task('cssnano', ['sass'], () => {
   return gulp.src(tasks.cssnano.main)
   .pipe($.cssnano())
   .pipe($.rename('app.min.css'))
   .pipe(gulp.dest(tasks.cssnano.dest));
 });
 
-// gulp.task('iconfont', function(){
+// gulp.task('iconfont', () => {
 //   gulp.src(['./src/assets/iconsvg/*.svg'], { base: './src/assets' })
 //   .pipe($.iconfontCss({
 //     fontName: 'custom-icons',
@@ -143,11 +144,11 @@ gulp.task('cssnano', ['sass'], function () {
 //   .pipe(gulp.dest('./dist/fonts/icons'));
 // });
 
-gulp.task('svgstore', function () {
-  var svgs = gulp
+gulp.task('svgstore', () => {
+  const svgs = gulp
   .src(tasks.svgstore.src)
-  .pipe($.svgmin(function (file) {
-    var prefix = path.basename(file.relative, path.extname(file.relative));
+  .pipe($.svgmin((file) => {
+    const prefix = path.basename(file.relative, path.extname(file.relative));
     return {
       plugins: [{
         cleanupIDs: {
@@ -159,7 +160,7 @@ gulp.task('svgstore', function () {
   }))
   .pipe($.svgstore({ inlineSvg: true }));
 
-  function fileContents (filePath, file) {
+  const fileContents = (filePath, file) => {
     return file.contents.toString();
   }
 
@@ -169,26 +170,26 @@ gulp.task('svgstore', function () {
   .pipe(gulp.dest(tasks.svgstore.dest));
 });
 
-gulp.task('watch', [], function () {
-  $.watch(tasks.images.src, function () {
+gulp.task('watch', [], () => {
+  $.watch(tasks.images.src, () => {
     runSequence(['images']);
   });
-  $.watch(tasks.sass.src, function () {
+  $.watch(tasks.sass.src, () => {
     runSequence(['sass']);
   });
-  $.watch(tasks.svgstore.src, function () {
+  $.watch(tasks.svgstore.src, () => {
     runSequence(['svgstore', 'pug']);
   });
-  $.watch(tasks.pug.watch, function () {
+  $.watch(tasks.pug.watch, () => {
     runSequence(['pug']);
   });
-  $.watch(tasks.coffee.watch, function () {
+  $.watch(tasks.coffee.watch, () => {
     runSequence(['coffee']);
   });
   browserSync(tasks.browserSync);
 });
 
-var buildTasks = [
+const buildTasks = [
   'copy',
   'concat',
   'images',
@@ -197,34 +198,91 @@ var buildTasks = [
   'sass',
   'coffee',
   'cssnano',
-  'modernizr'
+  'modernizr',
+  'symbols'
 ];
 
 if (production) {
   buildTasks.push('uglify');
 }
 
-gulp.task('build', function () {
+gulp.task('build', () => {
   return runSequence(
     ['clean'], buildTasks
   );
 });
 
-var publisher = $.awspublish.create({
+/**
+ * Font settings
+ */
+const
+  // set name of your symbol font
+  fontName = 'symbols',
+  // set class name in your CSS
+  className = 's',
+  // you can also choose 'foundation-style'
+  template = 'fontawesome-style',
+  // you can also choose 'symbol-font-16px.sketch'
+  sketchFileName = './src/assets/font-kit/symbol-font-16px.sketch'
+
+/**
+ * Recommended to get consistent builds when watching files
+ * See https://github.com/nfroidure/gulp-iconfont
+ */
+const timestamp = Math.round(Date.now() / 1000)
+
+gulp.task('symbols', () =>
+  gulp.src(sketchFileName)
+    .pipe($.sketch({
+      export: 'artboards',
+      formats: 'svg'
+    }))
+    .pipe($.iconfont({
+      fontName,
+      formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
+      timestamp,
+      log: () => {} // suppress unnecessary logging
+    }))
+    .on('glyphs', (glyphs) => {
+      const options = {
+        className,
+        fontName,
+        fontPath: '/fonts/', // set path to font (from your CSS file if relative)
+        glyphs: glyphs.map(mapGlyphs)
+      }
+      gulp.src(`./src/assets/font-kit/templates/${ template }.scss`)
+        .pipe($.consolidate('lodash', options))
+        .pipe($.rename({ basename: fontName }))
+        .pipe(gulp.dest('./src/assets/font-kit/dist/scss/')) // set path to export your scss
+
+      // if you don't need sample.html, remove next 4 lines
+      gulp.src(`./src/assets/font-kit/templates/${ template }.html`)
+        .pipe($.consolidate('lodash', options))
+        .pipe($.rename({ basename: 'sample' }))
+        .pipe(gulp.dest('./src/assets/font-kit/dist/')) // set path to export your sample HTML
+    })
+    .pipe(gulp.dest('./src/assets/font-kit/dist')) // set path to export your fonts
+)
+
+const mapGlyphs = (glyph) => {
+  return { name: glyph.name, codepoint: glyph.unicode[0].charCodeAt(0) }
+}
+
+const publisher = $.awspublish.create({
   profile: 'default',
   params: {
     Bucket: 'truenth'
   }
 });
 
-var headers = {
+const headers = {
   'Cache-Control': 'max-age=0, no-transform, public'
 };
 
-gulp.task('publish', function() {
+gulp.task('publish', () => {
   return gulp.src('./dist/**')
   .pipe(publisher.publish(headers))
-  .on('error', function(err) {
+  .on('error', (err) => {
     return console.error('failed to publish err code: ', err.statusCode, 'error:', err);
   })
   .pipe(publisher.sync())
