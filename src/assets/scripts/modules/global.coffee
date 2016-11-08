@@ -22,10 +22,10 @@ module.exports = class Global
       top: 0,
       align: 'left'
       animation:
-        duration: 500
-        easing: 'easeOutQuint'
+        duration: 250
+        easing: 'easeOutExpo'
       sidebar:
-        width: 495
+        width: if $(window).width() < 640 then 311 else 495
       selectors:
         trigger: '.js-nav-menu-toggle',
         quitter: 'a'

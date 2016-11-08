@@ -142,6 +142,10 @@ $header-height-mobile: 92px
       padding-left: 50px
       min-height: 32px
 
+      +media('<md')
+        padding-left: 45px
+        padding-right: 5px
+
     figure
       @extend .s
       @extend .s-hamburger
@@ -328,8 +332,10 @@ figure.nav-overlay
   &__inner
     padding: 65px
 
+    +media('<md')
+      padding: 20px
+
   +media('<md')
-    padding: 20px
     width: $side-nav-width-mobile
 
   .is-nav-expanded &
@@ -374,6 +380,9 @@ figure.nav-overlay
           position: absolute
           left: 0
           top: 4px
+
+          +media('<md')
+            top: -3px
 
     figure
       @extend .s
