@@ -17,3 +17,15 @@ module.exports = class Global
       $('html,body').animate
         scrollTop: position
       , config.fx.speed.mid, config.fx.easing
+
+    $( 'nav.side-nav' ).simplerSidebar
+      top: 0,
+      align: 'left'
+      animation:
+        duration: 500
+        easing: 'easeOutQuint'
+      sidebar:
+        width: 495
+      selectors:
+        trigger: '.js-nav-menu-toggle',
+        quitter: 'a'

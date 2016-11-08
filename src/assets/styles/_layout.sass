@@ -322,9 +322,11 @@ figure.nav-overlay
   background: $gray-lighter
   color: $gray-dark
   width: $side-nav-width
-  padding: 65px
   z-index: 100
   left: -1*$side-nav-width
+
+  &__inner
+    padding: 65px
 
   +media('<md')
     padding: 20px

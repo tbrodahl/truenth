@@ -21,6 +21,9 @@
     "lodash": "^4.16.6",
     "imagesloaded": "^4.1.1",
     "easing": "*",
-    "sidr": "^2.2.1"
+    "simpler-sidebar": "^2.1.4"
+  },
+  "resolutions": {
+    "jquery": "1.9.1 - 2"
   }
 }
