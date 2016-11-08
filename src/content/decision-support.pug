@@ -1,0 +1,57 @@
+extends ../templates/layouts/default
+
+block vars
+  - var bodyClass = 'about theme--intro-light'
+
+block content
+  .page-intro.page-intro--dark(style="background-image: url(/images/DS-Top-Background.jpg);")
+    .page-intro__content
+      h1.page-intro__main Decision Support
+      p.page-intro__sub Choosing which treatment path to go down can be confusing and overwhelming. Being informed of the different options and their side-effects will be critical in making the best choice for you.
+      .button-callout
+        a.button.button--large.button--teal(href="#") Join Us
+        figure.js-scroll-down(data-target='.page-intro')
+  .module-wrap.module-wrap--watch
+    img(src="/images/DS-Video-Export.jpg")
+    .module-wrap--inner
+      .button-callout
+        a.button.button--large.button--teal(href="#") Watch
+  .module-wrap.module-wrap--theme-blue
+    .module.module--theme-blue
+      .accent-heading Objective N<em>o</em>6: Confident Decision Making
+      p.module__heading Making Your Decision
+      p.module__body As you decide which treatment is best for you, it is important to take into consideration multiple factors.
+      .list-module
+        .accent-heading Helpful Tip N<em>o</em>3: Decision Checklist
+        ul.list-module__items
+          li.list-module__item.checkbox-item
+            .checkbox-item__check
+              figure
+            .checkbox-item__copy Have you asked your doctor all your questions?
+          li.list-module__item.checkbox-item
+            .checkbox-item__check
+              figure
+            .checkbox-item__copy Have you included your family in your decision?
+          li.list-module__item.checkbox-item
+            .checkbox-item__check
+              figure
+            .checkbox-item__copy Have you answered the Decision Support questionnaire?
+          li.list-module__item.checkbox-item
+            .checkbox-item__check
+              figure
+            .checkbox-item__copy Are you comfortable with your choice?
+  .module-wrap.module-wrap--confidence
+    .module
+      .accent-heading Tool N<em>o</em>1: Post Diagnosis
+      h3.module__head Decision Support Tool
+      p.module__body Our tool was created to ask the questions that help determine which treatment option is best for you.
+      p.module__body After you have completed the questionaire you will receive a report that describes which topics are most important to you, and various treatments that align with your choices.
+      p.module__body You can download the report and share it with your doctors.
+      .next-down
+        figure
+      .icon-box-wrap
+        include ../templates/partial/modules/tool_1
+        .icon-box-wrap__sub.button-wrap
+          a.icon-box__button.icon-box__button--main(href="#")
+            span Start<figure></figure>
+  include ../templates/partial/_community_participation

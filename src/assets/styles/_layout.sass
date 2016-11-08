@@ -29,6 +29,7 @@ $upper-banner-height-mobile: 50px
 
   +media('<lg')
     height: $upper-banner-height-mobile
+    display: none
 
   +media('<md')
     display: none
@@ -432,7 +433,7 @@ figure.nav-overlay
     +make-col-mobile-spacing
     +make-col-span(12)
     text-align: center
-    padding-top: $header-height + 40px
+    padding-top: 15%
     margin-bottom: 50px
 
     +media('<md')
@@ -482,10 +483,48 @@ figure.nav-overlay
       figure
         @extend .s
         @extend .s-caret-down
+        background: #EFECE5
+        border-radius: 100%
+        width: 52px
+        height: 52px
         +fz(30px, 1)
 
-        &:hover
-          color: $gray-alt
+        &:before
+          position: relative
+          top: 13px
+
+.page-intro
+  text-align: center
+  background-size: cover
+  background-attachment: scroll
+  background-position: top center
+  padding-bottom: 80px
+
+  +media('>md')
+    padding-top: $header-height
+    margin-top: -$header-height
+
+  &--dark
+    color: #fff
+
+  &__main
+    +fz(38px, 44px)
+    font-weight: bold
+    margin-bottom: 25px
+
+  &__sub
+    margin-bottom: 0
+
+  &__content
+    +fz(28px, 35px)
+    padding-top: $header-height
+    margin: 0 auto
+    max-width: 740px
+    margin: 0 auto 40px
+
+  .button-callout
+    padding-bottom: 0
+
 
 .module
   @extend .outer-container
@@ -503,12 +542,18 @@ figure.nav-overlay
 
   &__head
     +fz(38px, 50px)
-    font-weight: 500
+    font-weight: bold
     text-align: center
     margin: 0 0 40px
 
     +media('<md')
       +fz(30px, 40px)
+
+  &__heading
+    +fz(38px, 50px)
+    font-weight: bold
+    margin: 0 0 10px
+    text-align: center
 
   &__body
     +fz(24px, 33px)
@@ -518,28 +563,35 @@ figure.nav-overlay
     +media('<md')
       +fz(20px, 27px)
 
+  &--theme-brown
+    background: #4D4E4C
+
+=module-wrap($theme, $bgColor, $textColor, $accentHeadingColor, $moreArrowColor, $moreArrowColorHover)
+  &--theme-#{$theme}
+    background: $bgColor
+    color: $textColor
+
+    .accent-heading
+      color: $accentHeadingColor
+
+    .more-arrow > a
+      color: $moreArrowColor
+
+      &:hover
+        color: $moreArrowColorHover
+
+    .next-down figure
+      color: $accentHeadingColor
+      opacity: 0.5
 
 .module-wrap
 
-  &--theme-teal
-    background: $teal
-    color: #FFF
-
-    .accent-heading
-      color: $gray-alt
-
-    .more-arrow > a
-      color: #FFF
-
-      &:hover
-        color: $gray-dark
-
-  &--theme-gray
-    background: #5F676E
-    color: #FFF
-
-    .accent-heading
-      color: $gray-alt
+  +module-wrap('teal', $teal, #FFF, $gray-alt, #FFF, $gray-dark)
+  +module-wrap('gray', #5F676E, #FFF, $gray-alt, #FFF, $gray-dark)
+  +module-wrap('gray-light', #959897, #FFF, #D2D1C5, #FFF, $gray-dark)
+  +module-wrap('brown', #4D4E4C, #FFF, #D2D1C5, #FFF, #FFF)
+  +module-wrap('blue', #3B4449, #FFF, #D2D1C5, #FFF, #FFF)
+  +module-wrap('brown-light', #4D4E4C, #FFF, #D2D1C5, #FFF, #FFF)
 
   &--watch
     position: relative
@@ -548,7 +600,7 @@ figure.nav-overlay
       position: absolute
       top: 50%
       left: 50%
-      margin-left: -76.5px
+      margin-left: -109px
       margin-top: -36px
 
     +media('<md')
@@ -614,6 +666,112 @@ figure.nav-overlay
 
         &:hover
           color: #FFF
+
+.partner-grid
+  @extend .clearfix
+  +make-row
+  text-align: center
+  margin-top: 40px
+
+  &__item
+    @extend .clearfix
+    +make-col
+    +make-col-span(2.4)
+    min-height: 90px
+    margin-bottom: $grid-gutter-width
+
+    svg
+      max-width: 100%
+
+    +media('<md')
+      +make-col-span(4)
+
+.world-map
+  position: relative
+
+.tooltips
+  @extend .list-unstyled
+  &__item
+    background: #D2D1C5
+    color: #8F9385
+    position: absolute
+    +fz(14px, 1)
+    letter-spacing: 3px
+    padding: 10px
+    text-transform: uppercase
+    text-align: center
+    display: block
+    +media('<lg')
+      padding: 5px
+    span
+      display: none
+    strong
+      font-weight: normal
+    +media('<lg')
+      strong
+        display: none
+      span
+        display: block
+    figure
+      @extend .s
+      @extend .s-caret-tooltip
+      color: #D2d1c5
+      position: absolute
+      left: 50%
+      bottom: -10px
+      margin-left: -5px
+
+      +media('<md')
+        display: none
+
+    &--usa
+      top: 35%
+      left: 15%
+
+      +media('<md')
+        top: 37%
+
+    &--can
+      top: 24%
+      left: 21%
+
+    &--ire
+      top: 36%
+      left: 36%
+
+      +media('<lg')
+        left: 42%
+
+      figure
+        left: auto
+        right: 10px
+        top: -10px
+        bottom: auto
+        transform: rotate(180deg)
+
+    &--uk
+      top: 24%
+      left: 46%
+
+      figure
+        left: 10px
+
+    &--sing
+      top: 55%
+      left: 70%
+
+    &--aus
+      top: 70%
+      left: 79%
+
+    &--nz
+      top: 81%
+      left: 89%
+
+      +media('<lg')
+        left: 92%
+
+
 
 // .admin-controls
 //   position: fixed

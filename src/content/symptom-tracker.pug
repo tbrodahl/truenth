@@ -1,0 +1,36 @@
+extends ../templates/layouts/default
+
+block vars
+  - var bodyClass = 'about theme--intro-light'
+
+block content
+  .page-intro.page-intro--dark(style="background-image: url(/images/DS-Top-Background.jpg);")
+    .page-intro__content
+      h1.page-intro__main Symptom Tracker
+      p.page-intro__sub Track your symptoms to see how they are evolving over time, and how they compare to other Prostate Cancer recoveries.
+      .button-callout
+        a.button--teal.icon-box__button.icon-box__button--main(href="#")
+          span Start<figure></figure>
+        figure.js-scroll-down(data-target='.page-intro')
+  .module-wrap.module-wrap--watch
+    img(src="/images/ST-Video-Export.jpg")
+    .module-wrap--inner
+      .button-callout
+        a.button.button--large.button--teal(href="#") Watch
+  .module-wrap.module-wrap--symptom.module-wrap--theme-brown
+    .module
+      .accent-heading Objective N<em>o</em>3: Confident Decision Making
+      h3.module__head Monitoring and Tracking
+      p.module__body We’ve created a tool that asks you questions about your symptoms and side-effects throughout your prostate cancer journey from diagnosis through recovery.
+      p.module__body Every time you complete the tracking questionnaire it adds data to your graph and shows you how your experience compares with other men.
+      img(src="/images/sample-graph@2x.png")
+      .next-down
+        p.next-down__copy We’ve created a tool to track your prostate cancer treatment<br /> side effects over time and provide personal guidance.
+        figure
+      .icon-box-wrap
+        include ../templates/partial/modules/tool_2
+        .icon-box-wrap__sub.button-wrap
+          a.icon-box__button.icon-box__button--main(href="#")
+            span Start<figure></figure>
+
+  include ../templates/partial/_community_participation

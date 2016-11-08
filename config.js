@@ -30,7 +30,6 @@ module.exports = {
       src: [
         './src/assets/scripts/lib/modernizr-custom.js',
         './src/assets/components/easing/easing.js',
-        './src/assets/components/simpler-sidebar/dist/jquery.simpler-sidebar.js',
         './src/assets/components/bootstrap/js/dist/util.js',
         './src/assets/components/bootstrap/js/dist/dropdown.js',
         './src/assets/components/lodash/dist/lodash.js',

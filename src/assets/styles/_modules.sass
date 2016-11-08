@@ -20,6 +20,10 @@ $default-transition: all $default-transition-speed $default-transition-easing
   +media('<lg')
     +bg-retina('logo', 132, 58)
 
+  .theme--intro-light &
+    :not(.is-scrolled) &
+      +bg-retina('logo-white', 218, 95)
+
 .button
   @extend %default-transition
   +fz(16px, 1)
@@ -31,6 +35,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
 
   &--large
     +fz(22px, 1)
+    min-width: 218px
     padding: 25px 30px
 
   &--small
@@ -81,7 +86,6 @@ $default-transition: all $default-transition-speed $default-transition-easing
     margin: 25px 0 0
     left: 50%
     margin-left: -233/2 + px
-
 
   em
     @extend %accent-heading-super
@@ -179,6 +183,14 @@ $default-transition: all $default-transition-speed $default-transition-easing
   > a.button
     display: inline-block
 
+  figure
+    @extend .s
+    @extend .s-caret-down
+    +fz(30px, 1)
+    color: $teal
+    display: block
+    margin: 40px 0 0
+
 .next-down
   text-align: center
   padding-bottom: 30px
@@ -193,8 +205,6 @@ $default-transition: all $default-transition-speed $default-transition-easing
     @extend .s-caret-down
     +fz(30px, 1)
     color: $teal
-
-
 
 .mini-boxes
   // +make-row
@@ -244,12 +254,14 @@ $default-transition: all $default-transition-speed $default-transition-easing
   min-height: 130px
   max-height: 100%
 
+  .icon-box-wrap &
+    padding-left: 130px
+
   strong, h4, span
     display: block
 
   &--theme-brown
     background: rgba(57, 56, 51, 0.8)
-
 
   &__subhead
     +fz(16px, 20px)
@@ -258,6 +270,12 @@ $default-transition: all $default-transition-speed $default-transition-easing
     text-transform: uppercase
     margin: 6px 0 10px
     color: $teal-light
+
+    .icon-box-wrap &
+      +fz(12px, 18px)
+
+      em
+        font-size: 6px
 
     .icon-box--theme-two &
       color: #D2D1C5
@@ -270,6 +288,12 @@ $default-transition: all $default-transition-speed $default-transition-easing
     text-transform: uppercase
     font-weight: 700
     letter-spacing: 1.14px
+
+    .icon-box--theme-inactive &
+      color: #BFC0BD
+
+    .icon-box-wrap &
+      +fz(22px, 28px)
 
   &__lowhead
     color: #BCC2A6
@@ -290,7 +314,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
     +fz(22px, 26px)
     letter-spacing: 5px
     color: #FFF
-    display: block
+    display: inline-block
     padding: 25px
     text-transform: uppercase
 
@@ -337,6 +361,39 @@ $default-transition: all $default-transition-speed $default-transition-easing
       &:hover
         background: darken($gold-alt, 15%)
 
+.icon-box-group__wrapper
+  @extend .outer-container
+
+.icon-box-group
+  display: flex
+  flex-wrap: wrap
+  width: 100%
+  // +make-row
+
+  +media('<lg')
+    display: block
+
+  .icon-box-wrap
+    float: left
+    width: 50%
+    padding: 0 24px 25px 0
+
+    +media('<lg')
+      display: block
+      float: none
+      width: 100%
+      padding: 0 0 5px
+
+    &:nth-child(2n)
+      padding-right: 0
+
+    .icon-box-wrap__main
+      width: 100%
+      margin: 0
+
+    // +make-col
+    // +make-col-span(6)
+
 .icon-box-wrap
   display: flex
   $small-size: 3.7
@@ -350,8 +407,14 @@ $default-transition: all $default-transition-speed $default-transition-easing
     +make-col-span(12 - $small-size)
     background: rgba(51, 54, 56, 0.8)
 
+    &.icon-box--theme-inactive
+      background: rgba(51, 54, 56, 0.5)
+
     &.icon-box--theme-brown
       background: rgba(57, 56, 51, 0.8)
+
+      &.icon-box--theme-inactive
+        background: rgba(57, 56, 51, 0.5)
 
     +media('<md')
       +make-col-span(12)
@@ -406,3 +469,38 @@ a.profile-toggle
 
     &:hover
       background: #CCD0D3
+
+.list-module
+  background: #BCC2A6
+  color: #586C73
+  padding: 50px 80px
+
+  .accent-heading
+    color: #586C73 !important
+    &::after
+      background: #7C959E
+
+  &__items
+    @extend .list-unstyled
+
+  &__item
+    +fz(28px, 35px)
+    margin: 20px 0
+
+.checkbox-item
+  padding-left: 80px
+  position: relative
+
+  &__check
+    width: 35px
+    height: 35px
+    background: #fff
+    position: absolute
+    left: 0
+
+    figure
+      @extend .s
+      @extend .s-check
+      position: absolute
+      left: 4px
+      top: 2px

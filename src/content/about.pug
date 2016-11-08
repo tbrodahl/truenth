@@ -1,0 +1,98 @@
+extends ../templates/layouts/default
+
+block vars
+  - var bodyClass = 'about theme--intro-light'
+
+block content
+  .page-intro.page-intro--dark(style="background-image: url(/images/About-Top-Background.jpg);")
+    .page-intro__content
+      h1.page-intro__main We're a collaborative program <br/>funded and created by Movember.
+      p.page-intro__sub Our mission is to improve the prostate cancer journey for men all over the world by bringing together the voices of doctors, patients, caregivers, universities, and volunteers.
+      .button-callout
+        a.button.button--large.button--teal(href="#") Join Us
+        figure.js-scroll-down(data-target='.page-intro')
+  .module-wrap.module-wrap--watch
+    img(src="/images/About-Video-Export.jpg")
+    .module-wrap--inner
+      .button-callout
+        a.button.button--large.button--teal(href="#") Watch
+  .module-wrap.module-wrap--theme-brown
+    .module.module--theme-brown
+      .accent-heading Objective N<em>o</em>1: Practical Tools
+      p.module__heading Our Current Projects
+      p.module__body We have two projects currently running and more on the way.
+      .icon-box-group__wrapper
+        .icon-box-group
+          .icon-box-wrap
+            include ../templates/partial/modules/tool_1
+          .icon-box-wrap
+            include ../templates/partial/modules/tool_2
+          .icon-box-wrap
+            include ../templates/partial/modules/tool_3
+          .icon-box-wrap
+            include ../templates/partial/modules/tool_4
+
+  .module-wrap.module-wrap--theme-gray-light
+    .module.module--theme-gray
+      .accent-heading Objective N<em>o</em>6: Collaboration
+      p.module__heading Our USA Partners
+      p.module__body We have brought together leaders and experts that are actively <br/> working with us on the best solutions for prostate cancer.
+      .partner-grid
+        .partner-grid__item
+          +svg('Lived-Experience-Coming-Soon', 90, 90)
+        .partner-grid__item
+          +svg('Lived-Experience-Coming-Soon', 90, 90)
+        .partner-grid__item
+          +svg('Lived-Experience-Coming-Soon', 90, 90)
+        .partner-grid__item
+          +svg('Lived-Experience-Coming-Soon', 90, 90)
+        .partner-grid__item
+          +svg('Lived-Experience-Coming-Soon', 90, 90)
+        .partner-grid__item
+          +svg('Lived-Experience-Coming-Soon', 90, 90)
+        .partner-grid__item
+          +svg('Lived-Experience-Coming-Soon', 90, 90)
+        .partner-grid__item
+          +svg('Lived-Experience-Coming-Soon', 90, 90)
+        .partner-grid__item
+          +svg('Lived-Experience-Coming-Soon', 90, 90)
+        .partner-grid__item
+          +svg('Lived-Experience-Coming-Soon', 90, 90)
+  .module-wrap.module-wrap--theme-blue
+    .module.module--theme-gray
+      .accent-heading Objective N<em>o</em>6: Global Strategy
+      p.module__heading Worldwide Chapters
+      p.module__body The TrueNTH Program is represented in 7 countries around the world:
+      .world-map
+        img(src="/images/World-Map@2x.png")
+        ul.tooltips
+          li.tooltips__item.tooltips__item--usa
+            strong USA
+            span US
+            figure
+          li.tooltips__item.tooltips__item--can
+            strong Canada
+            span CA
+            figure
+          li.tooltips__item.tooltips__item--ire
+            strong Ireland
+            span IE
+            figure
+          li.tooltips__item.tooltips__item--uk
+            strong UK
+            span UK
+            figure
+          li.tooltips__item.tooltips__item--sing
+            strong Singapore
+            span SG
+            figure
+          li.tooltips__item.tooltips__item--aus
+            strong Australia
+            span AU
+            figure
+          li.tooltips__item.tooltips__item--nz
+            strong New Zealand
+            span NZ
+            figure
+      p.module__body TrueNTH has invested 42 million USD to support the work of more than 350 global experts in prostate cancer care in these countries.
+  include ../templates/partial/_community_participation
