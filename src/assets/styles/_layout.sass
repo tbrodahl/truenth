@@ -45,9 +45,11 @@ $upper-banner-height-mobile: 50px
     figure
       @extend .s
       @extend .s-arrow-right
-      +fz(30px, 75px)
+      +fz(30px, 1)
       margin-left: 5px
-      top: 7px
+      top: 10px
+      +media('<md')
+        top: 7px
 
     +media('<lg')
       +fz(14px, $upper-banner-height-mobile)
@@ -59,13 +61,13 @@ $upper-banner-height-mobile: 50px
     position: absolute
     right: 20px
     top: 50%
-    margin-top: -10px
+    margin-top: -5px
 
     figure
       @extend .s
       @extend .s-close-x
       color: #fff
-      +fz(35px, 1)
+      +fz(27px, 1)
       top: -10px
 
       &:hover
@@ -78,12 +80,13 @@ $upper-banner-height-mobile: 50px
   position: relative
   z-index: 1
 
-  +media('<lg')
+  +media('<md')
     padding-top: $content-border-size-mobile
     margin-top: -1*$content-border-size-mobile - 5px
 
   .is-upper-banner-closed &
-    top: 0
+    +media('>md')
+      top: 0
 
 $header-height: 160px
 $header-height-mobile: 92px
@@ -102,13 +105,13 @@ $header-height-mobile: 92px
 
 .header
   @extend .clearfix
-  padding: 30px 50px
+  padding: 20px 50px
   position: absolute
   width: 100%
   height: $header-height
   z-index: 10
 
-  +media('<md')
+  +media('<lg')
     +header-scrolled-styles
     padding-left: 15px
     padding-right: 15px
@@ -116,7 +119,7 @@ $header-height-mobile: 92px
   .is-scrolled &
     +header-scrolled-styles
 
-    +media('<md')
+    +media('<lg')
       padding-left: 15px
       padding-right: 15px
 
@@ -127,7 +130,7 @@ $header-height-mobile: 92px
       .is-scrolled &
         background: $gray-light
 
-      +media('<md')
+      +media('<lg')
         .is-scrolled &
           background: $gray-light
 
@@ -136,17 +139,17 @@ $header-height-mobile: 92px
     float: left
 
     a
-      padding-left: 35px
+      padding-left: 50px
       min-height: 32px
 
     figure
       @extend .s
       @extend .s-hamburger
-      +fz(20px, 1)
+      +fz(23px, 1)
       color: $teal
       position: absolute
-      top: 6px
-      left: 8px
+      top: 11px
+      left: 10px
 
   &__meta
     float: right
@@ -165,7 +168,7 @@ $header-height-mobile: 92px
     .is-scrolled &
       +logo-scrolled-styles
 
-    +media('<md')
+    +media('<lg')
       +logo-scrolled-styles
 
 // logged in state
@@ -265,10 +268,10 @@ $header-height-mobile: 92px
     top: $upper-banner-height
     position: absolute
 
-    +media('<lg')
-      top: $upper-banner-height-mobile
+    // +media('<lg')
+    //   top: $upper-banner-height-mobile
 
-    +media('<md')
+    +media('<lg')
       display: none
 
     .is-scrolled &,
@@ -354,12 +357,21 @@ figure.nav-overlay
 
   &__item
     display: block
-    +fz(34px, 39px)
+    +fz(32px, 36px)
     font-weight: bold
     margin: 0 0 20px
 
     +media('<md')
       +fz(20px, 24px)
+
+    &--has-icon
+      a
+        padding-left: 40px
+        position: relative
+        svg
+          position: absolute
+          left: 0
+          top: 4px
 
     figure
       @extend .s
@@ -391,7 +403,7 @@ figure.nav-overlay
   .is-logged-in &
     padding-top: $header-height-mobile
 
-  +media('>lg')
+  +media('>md')
     padding-top: $header-height
     margin-top: -$header-height
 
@@ -519,14 +531,14 @@ figure.nav-overlay
       color: $gray-alt
 
   &--watch
-    +hero-bg('Home-Video-Export', center center)
-    display: flex
-    align-items: center
-    min-height: 711px
-    justify-content: center
+    position: relative
 
-    div
-      flex: 1
+    .module-wrap--inner
+      position: absolute
+      top: 50%
+      left: 50%
+      margin-left: -76.5px
+      margin-top: -36px
 
     +media('<md')
       min-height: 314px

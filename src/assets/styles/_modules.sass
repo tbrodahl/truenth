@@ -17,7 +17,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
   .is-scrolled &
     +bg-retina('logo', 132, 58)
 
-  +media('<md')
+  +media('<lg')
     +bg-retina('logo', 132, 58)
 
 .button
@@ -35,7 +35,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
 
   &--small
     +fz(12px, 1)
-    padding: 10px
+    padding: 16px
     max-height: 45px
 
   // colors
@@ -112,7 +112,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
   figure
     @extend .s
     @extend .s-arrow-right
-    +fz(30px, 15px)
+    +fz(31px, 15px)
     position: absolute
     right: 0
     top: -8px
@@ -127,7 +127,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
   @extend .outer-container
 
 .photo-grid
-  +make-row
+  // +make-row
   width: 100%
 
   &__item
@@ -138,6 +138,9 @@ $default-transition: all $default-transition-speed $default-transition-easing
     position: relative
     color: #FFF
     margin: 0
+
+    +media('<md')
+      +make-col-span(6)
 
     &:hover
       color: #FFF
@@ -178,6 +181,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
 
 .next-down
   text-align: center
+  padding-bottom: 30px
 
   &__copy
     +fz(24px, 32px)
@@ -188,7 +192,9 @@ $default-transition: all $default-transition-speed $default-transition-easing
     @extend .s
     @extend .s-caret-down
     +fz(30px, 1)
-    color: #fff
+    color: $teal
+
+
 
 .mini-boxes
   // +make-row
@@ -205,9 +211,12 @@ $default-transition: all $default-transition-speed $default-transition-easing
       +make-col-span(6)
 
 .mini-box
-  background: $gray-darker
+  background: rgba(51, 54, 56, 0.8)
   color: #FFF
   padding: 20px
+
+  .mini-boxes--theme-brown &
+    background: rgba(57, 56, 51, 0.8)
 
   &__head
     +fz(16px, 19px)
@@ -237,6 +246,10 @@ $default-transition: all $default-transition-speed $default-transition-easing
 
   strong, h4, span
     display: block
+
+  &--theme-brown
+    background: rgba(57, 56, 51, 0.8)
+
 
   &__subhead
     +fz(16px, 20px)
@@ -326,12 +339,16 @@ $default-transition: all $default-transition-speed $default-transition-easing
 
 .icon-box-wrap
   display: flex
-  $small-size: 2.75
+  $small-size: 3.7
+  max-width: 715px
+  margin: 0 auto
+
   +media('<md')
     display: block
 
   &__main
     +make-col-span(12 - $small-size)
+    background: rgba(51, 54, 56, 0.8)
 
     +media('<md')
       +make-col-span(12)

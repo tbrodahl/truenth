@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>ST-Icon-Nav</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="SVGs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ST-Icon-Nav" stroke="#A69E87" stroke-width="2">
+            <g id="Group-3" transform="translate(1.000000, 1.000000)">
+                <circle id="Oval-2" cx="15" cy="15" r="15"></circle>
+                <polyline id="Path-5" points="1.90869141 5.8815918 7.44677734 9.37182617 12.5968018 8.22583008 16.4206543 10.8857422 20.6973877 9.37182617 23.8481445 12.5581055 30.0117188 10.6190186"></polyline>
+                <path d="M0.742885045,17.5221819 C0.742885045,17.5221819 0.00764052691,13.8374161 7.18411932,13.4483257 C14.3605981,13.0592353 13.0623763,21.0234931 22.4147441,17.5221819 C31.7671119,14.0208707 29.6699219,15.7721819 29.6699219,15.7721819" id="Path-6"></path>
+                <path d="M2,22 L28.663594,22" id="Path-7"></path>
+            </g>
+        </g>
+    </g>
+</svg>

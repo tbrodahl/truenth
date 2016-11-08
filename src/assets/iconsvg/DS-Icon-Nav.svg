@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>DS-Icon-Nav</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="SVGs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DS-Icon-Nav">
+            <g id="Group-2" transform="translate(1.000000, 1.000000)">
+                <circle id="Oval-2" stroke="#7C959E" stroke-width="2" cx="15" cy="15" r="15"></circle>
+                <polygon id="Path-4" fill="#7C959E" points="14.9822992 1.99930246 12.5 12.9993025 17.4993025 12.9791931"></polygon>
+                <polygon id="Path-4" fill="#7C959E" transform="translate(14.999651, 22.500000) rotate(-180.000000) translate(-14.999651, -22.500000) " points="14.9822992 17 12.5 28 17.4993025 27.9798906"></polygon>
+                <polygon id="Path-4" fill="#7C959E" transform="translate(22.500000, 14.999651) rotate(-270.000000) translate(-22.500000, -14.999651) " points="22.482648 9.49965123 20.0003488 20.4996512 24.9996512 20.4795418"></polygon>
+                <polygon id="Path-4" fill="#7C959E" transform="translate(7.281808, 14.999651) rotate(-450.000000) translate(-7.281808, -14.999651) " points="7.26445359 9.28145926 4.78180804 20.7178432 9.78180804 20.696936"></polygon>
+                <circle id="Oval-2" stroke="#F7F7F7" stroke-width="2" fill="#7C959E" cx="15" cy="15" r="3"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

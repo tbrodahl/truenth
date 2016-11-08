@@ -9,11 +9,15 @@ nav.side-nav
     li.side-nav-items__item
       <a href="#">About TrueNTH<figure></figure></a>
 
-    li.side-nav-items__item
-      <a href="#">Decision Support<figure></figure></a>
+    li.side-nav-items__item.side-nav-items__item--has-icon
+      a(href='#')
+        +svg('DS-Icon-Nav', 32, 32)
+        |Decision Support<figure></figure>
 
-    li.side-nav-items__item
-      <a href="#">Symptom Tracker<figure></figure></a>
+    li.side-nav-items__item.side-nav-items__item--has-icon
+      a(href='#')
+        +svg('ST-Icon-Nav', 32, 32)
+        |Symptom Tracker<figure></figure>
 
     li.side-nav-items__item
       <a href="#">Join Us<figure></figure></a>
