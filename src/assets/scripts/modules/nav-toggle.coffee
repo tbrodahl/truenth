@@ -2,7 +2,7 @@ navExpandedClass = 'is-nav-expanded'
 
 module.exports = class NavToggle
   constructor: ->
-    # @build()
+    @build()
 
   build: ->
     $('.js-nav-menu-toggle').on 'click', (e) ->

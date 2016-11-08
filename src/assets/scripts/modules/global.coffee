@@ -18,14 +18,14 @@ module.exports = class Global
         scrollTop: position
       , config.fx.speed.mid, config.fx.easing
 
-    $( 'nav.side-nav' ).simplerSidebar
-      top: 0,
-      align: 'left'
-      animation:
-        duration: 250
-        easing: 'easeOutExpo'
-      sidebar:
-        width: if $(window).width() < 640 then 311 else 495
-      selectors:
-        trigger: '.js-nav-menu-toggle',
-        quitter: 'a'
+    # $('nav.side-nav').simplerSidebar
+    #   top: 0,
+    #   align: 'left'
+    #   animation:
+    #     duration: 250
+    #     easing: 'easeOutExpo'
+    #   sidebar:
+    #     width: if $(window).width() < 640 then 311 else 495
+    #   selectors:
+    #     trigger: '.js-nav-menu-toggle',
+    #     quitter: 'a'
