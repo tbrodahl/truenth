@@ -9,7 +9,7 @@ block content
       h1.page-intro__main Decision Support
       p.page-intro__sub Choosing which treatment path to go down can be confusing and overwhelming. Being informed of the different options and their side-effects will be critical in making the best choice for you.
       .button-callout
-        a.button.button--large.button--teal(href="#") Join Us
+        a.button.button--large.button--teal(href=locals.content.joinUs.link) Join Us
         figure.js-scroll-down(data-target='.page-intro')
   .module-wrap.module-wrap--watch
     img(src="/images/DS-Video-Export.jpg")
@@ -52,6 +52,6 @@ block content
       .icon-box-wrap
         include ../templates/partial/modules/tool_1
         .icon-box-wrap__sub.button-wrap
-          a.icon-box__button.icon-box__button--main(href="#")
+          a.icon-box__button.icon-box__button--main(href=locals.content.decisionSupport.link)
             span Start<figure></figure>
   include ../templates/partial/_community_participation

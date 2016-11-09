@@ -1,6 +1,6 @@
 module.exports = {
   sourcemaps: true,
-  baseTitle: 'Statics',
+  baseTitle: 'TrueNTH',
   content: {
     home: {
       link: '/'
@@ -21,7 +21,11 @@ module.exports = {
       link: '#log-in'
     },
     contact: {
-      link: '/contact.html'
+      link: '/contact.html',
+      aboutOptions: [
+        "I've been diagnosed with Prostate Cancer",
+        "Another Option Here"
+      ]
     },
     termsAndConditions: {
       link: '/terms-and-conditions.html'

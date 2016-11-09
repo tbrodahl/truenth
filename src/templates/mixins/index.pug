@@ -1,3 +1,8 @@
 mixin svg(id, width, height, className)
   svg(width=width, height=height, class!=className)
     use(xlink:href="#" + id)
+
+mixin buildInput(id, placeholder, label, type, className)
+  .field(class=className)
+    label=label
+    input(class='field__input input-' + id, type=type, placeholder=placeholder, id=id)

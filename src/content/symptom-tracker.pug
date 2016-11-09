@@ -9,7 +9,7 @@ block content
       h1.page-intro__main Symptom Tracker
       p.page-intro__sub Track your symptoms to see how they are evolving over time, and how they compare to other Prostate Cancer recoveries.
       .button-callout
-        a.button--teal.icon-box__button.icon-box__button--main(href="#")
+        a.button--teal.icon-box__button.icon-box__button--main(href=locals.content.joinUs.link)
           span Start<figure></figure>
         figure.js-scroll-down(data-target='.page-intro')
   .module-wrap.module-wrap--watch
@@ -30,7 +30,7 @@ block content
       .icon-box-wrap
         include ../templates/partial/modules/tool_2
         .icon-box-wrap__sub.button-wrap
-          a.icon-box__button.icon-box__button--main(href="#")
+          a.icon-box__button.icon-box__button--main(href=locals.content.symptomTracker.link)
             span Start<figure></figure>
 
   include ../templates/partial/_community_participation

@@ -9,6 +9,14 @@ module.exports = class NavToggle
       e.preventDefault()
       $('html').toggleClass(navExpandedClass, !$('html').hasClass(navExpandedClass))
 
-    $("figure.nav-overlay").on 'click', (e) ->
+    $("figure.nav-overlay, .js-close-nav").on 'click', (e) ->
       if $('html').hasClass(navExpandedClass)
         $('html').removeClass(navExpandedClass)
+
+    $('.side-nav a').on 'click touchend', (e) ->
+      e.preventDefault()
+      href = $(this).attr('href')
+      $('html').removeClass(navExpandedClass)
+      setTimeout ->
+        window.location = href
+      , 1000

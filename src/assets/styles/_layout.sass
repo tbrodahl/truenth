@@ -264,7 +264,7 @@ $header-height-mobile: 92px
       left: $side-nav-width
 
       +media('<md')
-        left: $side-nav-width-mobile
+        left: 0
 
   &__right
     right: 0
@@ -301,7 +301,7 @@ html.is-nav-expanded
     overflow: hidden
 
   +media('<md')
-    left: $side-nav-width-mobile
+    left: 0
 
 figure.nav-overlay
   margin: 0
@@ -314,8 +314,9 @@ figure.nav-overlay
   cursor: not-allowed
 
   .is-nav-expanded &
-    display: block
-    visibility: visible
+    +media('>md')
+      display: block
+      visibility: visible
 
 .side-nav
   @extend %default-transition
@@ -330,6 +331,15 @@ figure.nav-overlay
   z-index: 100
   left: -1*$side-nav-width
 
+  &__close
+    @extend .s
+    @extend .s-close-x
+    +fz(30px, 1)
+    color: $teal
+    position: absolute
+    right: 20px
+    top: 20px
+
   &__inner
     padding: 65px
 
@@ -337,7 +347,8 @@ figure.nav-overlay
       padding: 20px
 
   +media('<md')
-    width: $side-nav-width-mobile
+    .is-nav-expanded &
+      width: 100%
 
   .is-nav-expanded &
     left: 0
@@ -504,6 +515,10 @@ figure.nav-overlay
     padding-top: $header-height
     margin-top: -$header-height
 
+  +media('<md')
+    padding-left: $content-border-size-mobile + 10
+    padding-right: $content-border-size-mobile + 10
+
   &--dark
     color: #fff
 
@@ -562,6 +577,11 @@ figure.nav-overlay
 
     +media('<md')
       +fz(20px, 27px)
+
+  &__form
+    @extend .clearfix
+    display: inline-block
+    margin-top: 25px
 
   &--theme-brown
     background: #4D4E4C
@@ -771,36 +791,11 @@ figure.nav-overlay
       +media('<lg')
         left: 92%
 
+.contact-form-wrap
+  max-width: 600px
+  margin: 0 auto
+  padding: 0 $grid-gutter-width
 
-
-// .admin-controls
-//   position: fixed
-//   left: 35px
-//   bottom: 35px
-//   z-index: 10000
-//   padding: 25px
-//   background: rgba(255,255,255,0.8)
-//   // display: none
-//   h3
-//     +fz(15px, 1)
-//     text-align: center
-//     letter-spacing: 5px
-//     text-transform: uppercase
-//     margin: 0 0 25px
-//
-//   .is-showing-admin &
-//     display: block
-//
-//   button
-//     display: block
-//     width: 100%
-//     margin: 5px 0
-//     +fz(10px, 1)
-//     padding: 10px
-//
-//   figure
-//     @extend .s
-//     @extend .s-close-x
-//     position: absolute
-//     right: 5px
-//     top: 5px
+  +media('<md')
+    padding-left: 0
+    padding-right: 0
