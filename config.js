@@ -1,6 +1,35 @@
 module.exports = {
   sourcemaps: true,
-  baseTitle: 'Static',
+  baseTitle: 'Statics',
+  content: {
+    home: {
+      link: '/'
+    },
+    about: {
+      link: '/about.html'
+    },
+    decisionSupport: {
+      link: '/decision-support.html'
+    },
+    symptomTracker: {
+      link: '/symptom-tracker.html'
+    },
+    joinUs: {
+      link: '#join-us'
+    },
+    logIn: {
+      link: '#log-in'
+    },
+    contact: {
+      link: '/contact.html'
+    },
+    termsAndConditions: {
+      link: '/terms-and-conditions.html'
+    },
+    legal: {
+      link: '/legal.html'
+    }
+  },
   tasks: {
     dest: './dist',
     browserSync: {

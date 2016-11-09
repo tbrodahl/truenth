@@ -16,7 +16,7 @@ block content
       .accent-heading Objective N<em>o</em>13: Inclusiveness
       p.module__copy TrueNTH is a collective approach to improving quality of life before, during, and after treatment for prostate cancer.
       .more-arrow
-        a.more-arrow__link.more-arrow--teal(href="#")
+        a.more-arrow__link.more-arrow--teal(href=locals.content.about.link)
           span More About TrueNTH <figure></figure>
       .photo-grid-container
         .photo-grid
@@ -58,7 +58,7 @@ block content
             img.photo-grid__img( src="/images/Home-People-David.jpg")
             img.photo-grid__img--hovered( src="/images/Home-People-David-Over.jpg")
       .button-callout
-        a.button.button--large.button--teal(href="#") Join Us
+        a.button.button--large.button--teal(href=locals.content.joinUs.link) Join Us
   .module-wrap.module-wrap--watch
     img(src="/images/Home-Video-Export.jpg")
     .module-wrap--inner
@@ -109,9 +109,9 @@ block content
           span.icon-box__lowhead Questionnaire / 20 Mins
           +svg('DS-Compass', 92, 92, 'icon-box__icon')
         .icon-box-wrap__sub.button-wrap
-          a.icon-box__button.icon-box__button--main(href="#")
+          a.icon-box__button.icon-box__button--main(href=locals.content.decisionSupport.link)
             span Start<figure></figure>
-          a.icon-box__button.icon-box__button--sub(href="#") More Information
+          a.icon-box__button.icon-box__button--sub(href=locals.content.decisionSupport.link) More Information
   .module-wrap.module-wrap--symptom.module-wrap--theme-brown
     .module
       .accent-heading Objective N<em>o</em>4: Symptom Management
@@ -140,13 +140,13 @@ block content
           span.icon-box__lowhead Questionnaire / 10 Mins
           +svg('ST-Graph', 92, 92, 'icon-box__icon')
         .icon-box-wrap__sub.button-wrap
-          a.icon-box__button.icon-box__button--main(href="#")
+          a.icon-box__button.icon-box__button--main(href=locals.content.symptomTracker.link)
             span Start<figure></figure>
-          a.icon-box__button.icon-box__button--sub(href="#") More Information
+          a.icon-box__button.icon-box__button--sub(href=locals.content.symptomTracker.link) More Information
   .module-wrap.module-wrap--theme-gray
     .module
       .accent-heading Objective N<em>o</em>2: Community Participation
       h3.module__head Everyone has a part to play in improving the prostate cancer journey.
       p.module__body The way these tools work, the more people that join us, the better the tools will become for you and future generations.
       .button-callout
-        a.button.button--large.button--teal(href="#") Join Us
+        a.button.button--large.button--teal(href=locals.content.joinUs.link) Join Us
