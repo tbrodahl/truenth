@@ -43,6 +43,13 @@ $upper-banner-height-mobile: 50px
     +fz(21px, 75px)
     font-weight: 500
     margin: 0
+
+    &:active,
+    &:hover,
+    &:visited
+      text-decoration: none
+      color: #fff
+
     figure
       @extend .s
       @extend .s-arrow-right
@@ -106,7 +113,7 @@ $header-height-mobile: 92px
 
 .header
   @extend .clearfix
-  padding: 20px 50px
+  padding: 40px 70px
   position: absolute
   width: 100%
   height: $header-height
@@ -135,12 +142,11 @@ $header-height-mobile: 92px
         .is-scrolled &
           background: $gray-light
 
-
   &__menu
     float: left
 
     a
-      padding-left: 50px
+      padding-left: 55px
       min-height: 32px
 
       +media('<md')
@@ -154,7 +160,7 @@ $header-height-mobile: 92px
       color: $teal
       position: absolute
       top: 11px
-      left: 10px
+      left: 14px
 
   &__meta
     float: right
@@ -335,7 +341,7 @@ figure.nav-overlay
     @extend .s
     @extend .s-close-x
     +fz(30px, 1)
-    color: $teal
+    color: #BFC0BD
     position: absolute
     right: 20px
     top: 20px
@@ -386,21 +392,26 @@ figure.nav-overlay
 
     &--has-icon
       a
-        padding-left: 40px
+        padding-left: 45px
         position: relative
         svg
           position: absolute
           left: 0
-          top: 4px
+          top: 3px
 
           +media('<md')
             top: -3px
 
+    &--accentuated
+      a
+        +fz(28px, 32px)
+
     figure
       @extend .s
       @extend .s-arrow-right
+      +fz(30px, 1)
       opacity: 0
-      top: 4px
+      top: 5px
       margin-left: 5px
 
     a
@@ -410,7 +421,6 @@ figure.nav-overlay
       &:hover
         cursor: pointer
         color: $teal
-        text-decoration: underline
 
         figure
           opacity: 1
@@ -480,7 +490,7 @@ figure.nav-overlay
 
     &__sub
       margin: 0
-      +fz(28px, 34px)
+      +fz(26px, 34px)
 
       +media('<md')
         +fz(14px, 1)
@@ -534,8 +544,8 @@ figure.nav-overlay
     +fz(28px, 35px)
     padding-top: $header-height
     margin: 0 auto
-    max-width: 740px
-    margin: 0 auto 40px
+    max-width: $content-max-width
+    margin: 0 auto
 
   .button-callout
     padding-bottom: 0
@@ -548,7 +558,7 @@ figure.nav-overlay
   padding: 90px 0
 
   &__copy
-    +fz(38px, 50px)
+    +fz(33px, 45px)
     margin: 0
     text-align: center
 
@@ -556,7 +566,7 @@ figure.nav-overlay
       +fz(30px, 40px)
 
   &__head
-    +fz(38px, 50px)
+    +fz(35px, 44px)
     font-weight: bold
     text-align: center
     margin: 0 0 40px
@@ -572,7 +582,8 @@ figure.nav-overlay
 
   &__body
     +fz(24px, 33px)
-    margin: 0 0 25px
+    margin: 0 auto 25px
+    max-width: $content-max-width
     text-align: center
 
     +media('<md')
@@ -584,7 +595,8 @@ figure.nav-overlay
     margin-top: 25px
 
   &--theme-brown
-    background: #4D4E4C
+    background: #5E5B56
+
 
 =module-wrap($theme, $bgColor, $textColor, $accentHeadingColor, $moreArrowColor, $moreArrowColorHover)
   &--theme-#{$theme}
@@ -623,8 +635,9 @@ figure.nav-overlay
       margin-left: -109px
       margin-top: -36px
 
-    +media('<md')
-      min-height: 314px
+      .button-callout
+        +media('<md')
+          padding: 0
 
   &--confidence
     +hero-bg('DS-Background', center center)
