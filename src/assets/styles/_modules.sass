@@ -445,6 +445,9 @@ $default-transition: all $default-transition-speed $default-transition-easing
   &__sub
     +make-col-span($small-size)
 
+    > a
+      width: 100%
+
     +media('<md')
       +make-col-span(12)
       display: flex
