@@ -162,10 +162,7 @@ gulp.task('pug', () => {
     pretty: true
   }))
   .on('error', handleErrors)
-  .pipe(gulp.dest(tasks.dest))
-  .pipe(browserSync.reload({
-    stream: true
-  }));
+  .pipe(gulp.dest(tasks.dest));
 });
 
 gulp.task('coffee', () => {

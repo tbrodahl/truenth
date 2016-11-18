@@ -514,6 +514,14 @@ figure.nav-overlay
           position: relative
           top: 13px
 
+.simple-page-content
+  text-align: left
+  h1
+    text-align: center
+  p
+    +fz(20px, 25px)
+    margin: 0 0 20px
+
 .page-intro
   text-align: center
   background-size: cover
@@ -532,24 +540,33 @@ figure.nav-overlay
   &--dark
     color: #fff
 
+  &--theme-brown-light
+    background: #4D4E4C
+    color: #fff
+
+  &--top-img
+    background-position: center 90px
+
   &__main
     +fz(38px, 44px)
     font-weight: bold
     margin-bottom: 25px
+
+    &--accent
+      color: #D2D1C5
 
   &__sub
     margin-bottom: 0
 
   &__content
     +fz(28px, 35px)
-    padding-top: $header-height
+    padding-top: $header-height + 50
     margin: 0 auto
     max-width: $content-max-width
     margin: 0 auto
 
   .button-callout
     padding-bottom: 0
-
 
 .module
   @extend .outer-container
@@ -577,14 +594,21 @@ figure.nav-overlay
   &__heading
     +fz(38px, 50px)
     font-weight: bold
-    margin: 0 0 10px
+    margin: 0 0 30px
     text-align: center
+
+    &--accent
+      [class*='theme-brown'] &
+        color: #BCC2A6
 
   &__body
     +fz(24px, 33px)
     margin: 0 auto 25px
     max-width: $content-max-width
     text-align: center
+
+    &--left
+      text-align: left
 
     +media('<md')
       +fz(20px, 27px)
@@ -593,6 +617,13 @@ figure.nav-overlay
     @extend .clearfix
     display: inline-block
     margin-top: 25px
+
+  &__img
+    text-align: center
+    padding: 30px 0
+
+    img
+      display: inline-block
 
   &--theme-brown
     background: #5E5B56
@@ -604,6 +635,9 @@ figure.nav-overlay
     color: $textColor
 
     .accent-heading
+      color: $accentHeadingColor
+
+    [class*="--accent"]
       color: $accentHeadingColor
 
     .more-arrow > a
@@ -621,9 +655,24 @@ figure.nav-overlay
   +module-wrap('teal', $teal, #FFF, $gray-alt, #FFF, $gray-dark)
   +module-wrap('gray', #5F676E, #FFF, $gray-alt, #FFF, $gray-dark)
   +module-wrap('gray-light', #959897, #FFF, #D2D1C5, #FFF, $gray-dark)
-  +module-wrap('brown', #4D4E4C, #FFF, #D2D1C5, #FFF, #FFF)
+  +module-wrap('olive', #666860, #FFF, #A9B2B8, #FFF, $gray-dark)
+  +module-wrap('brown', #5E5B56, #FFF, #D2D1C5, #FFF, #FFF)
   +module-wrap('blue', #3B4449, #FFF, #D2D1C5, #FFF, #FFF)
   +module-wrap('brown-light', #4D4E4C, #FFF, #D2D1C5, #FFF, #FFF)
+
+  &--has-border
+    padding-top: 30px
+    border-top: 2px solid
+
+    .module
+      padding: 45px 0
+
+    &[class*='theme-brown']
+      border-color: #767067
+
+  &[class*='theme-brown-light']
+    a
+      color: #A1BFCA
 
   &--watch
     position: relative
