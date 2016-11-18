@@ -5,8 +5,8 @@ header.header
       span Menu
   a.logo(href="/")
   .header__meta
-    a.menu.button.button--small.button--white(href=locals.content.logIn.link) Log In
-    a.menu.button.button--small.button--white(href=locals.content.joinUs.link) Sign Up
+    a.menu.button.button--small.button--white(href=locals.content.logIn.link, data-toggle="modal", data-target="#modal-login") Log In
+    a.menu.button.button--small.button--white(href=locals.content.joinUs.link, data-toggle="modal", data-target="#modal-register") Sign Up
 
 header.header.header--logged-in
   .header__menu

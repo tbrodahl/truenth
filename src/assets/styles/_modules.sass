@@ -32,6 +32,11 @@ $default-transition: all $default-transition-speed $default-transition-easing
   padding: 15px
   letter-spacing: 3px
 
+  &:focus,
+  &:visited,
+  &:active
+    outline: none !important
+
   // sizes
 
   &--large
@@ -647,3 +652,121 @@ select
 
 .field-group
   margin: 0 0 30px
+
+.modal-backdrop
+  background: #3B4449
+  &.in
+    opacity: 1
+
+body.modal-open
+  .modal
+    display: flex !important
+    height: 100%
+    align-items: center
+    justify-content: center
+
+    .modal-dialog
+      margin: auto
+      width: 600px
+      border-radius: 0
+
+      +media('<md')
+        width: 100%
+
+.modal-content
+  border-radius: 0
+  text-align: center
+
+.box-modal
+  @extend .clearfix
+  color: #4B5E6F
+  position: relative
+
+  .button-large
+    display: inline-block
+    min-width: 350px
+
+  &__close
+    @extend .s
+    @extend .s-close-x
+    +fz(30px, 1)
+    position: absolute
+    right: 20px
+    top: 25px
+    color: #7C959E
+
+  &__inner
+    padding: 40px
+
+  &__title
+    +pseudo-el(128, 1, #4C5E6E)
+    +fz(28px, 33px)
+    color: #4B5E6F
+    position: relative
+    padding: 0 0 20px
+    margin: 0 0 25px
+    font-weight: bold
+    &:after
+      opacity: .5
+      position: absolute
+      bottom: 0
+      left: 50%
+      margin-left: -64px
+
+  &__copy
+    +fz(18px, 24px)
+
+  &__sub
+    +fz(12px, 17px)
+    color: #A9B2B8
+    text-transform: uppercase
+    display: block
+    letter-spacing: 3px
+    margin: 0 0 20px
+
+  &__footer
+    @extend .clearfix
+    padding: 20px 40px
+    background: rgba(181, 175, 167, 0.4)
+    display: inline-block
+    clear: both
+    float: left
+    width: 100%
+
+    .box-modal__sub
+      color: $teal
+
+    form
+      input
+        @extend %default-transition
+        display: inline-block
+        background: #fff
+        height: 44px
+        padding: 5px
+        border: 2px solid #fff
+        min-width: 215px
+
+        &:focus,
+        &:active
+          border: 2px solid $teal
+          outline: none !important
+
+      button
+        display: inline-block
+        @extend .button
+        border: 0
+        @extend .button--teal
+        @extend .button--small
+        position: relative
+        top: -1px
+
+// stubbed
+form
+  .submitted-text
+    display: none
+  &.is-submitted
+    input,
+    button
+      display: none
+    .submitted-text
+      display: block

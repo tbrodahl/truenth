@@ -7,6 +7,11 @@ module.exports = class Admin
     @build()
 
   build: ->
+    $('.js-mock-submit').on 'submit', (e) ->
+      e.preventDefault()
+      $(this).addClass('is-submitted')
+
+
     $(document).on 'keypress', (e) ->
       if e.which is 97 # 'a' pressed
         $('html').toggleClass(upperBannerClosedClass, !$('body').hasClass(loggedInClass))

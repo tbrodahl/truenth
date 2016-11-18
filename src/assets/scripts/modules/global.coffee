@@ -3,11 +3,14 @@ config = require('../config')
 module.exports = class Global
   constructor: ->
     @addFX()
+    @addPlugins()
     @bindEvents()
 
   addFX: ->
-
     $.extend($.easing, window.easing)
+
+  addPlugins: ->
+
 
   bindEvents: ->
     $('.js-scroll-down').on 'click', (e) ->
