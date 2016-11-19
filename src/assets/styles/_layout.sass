@@ -136,8 +136,17 @@ $header-height-mobile: 92px
       display: inline-block
       position: relative
 
+      .is-scrolled &
+        background: $gray-light
       +media('<lg')
         background: $gray-light
+      +media('<md')
+        height: 44px
+        figure
+          left: 16px
+      span
+        +media('<md')
+          display: none
 
   &__menu
     float: left
@@ -317,7 +326,7 @@ figure.nav-overlay
   cursor: not-allowed
 
   .is-nav-expanded &
-    +media('>md')
+    +media('>sm')
       display: block
       visibility: visible
 
@@ -378,6 +387,16 @@ figure.nav-overlay
 .side-nav-items
   @extend .list-unstyled
 
+  &__button
+    float: left
+    margin: 15px 15px 0 0
+
+    a
+      @extend .button
+      @extend .button--small
+      @extend .button--white
+      color: $teal
+
   &__item
     display: block
     +fz(32px, 36px)
@@ -385,7 +404,7 @@ figure.nav-overlay
     margin: 0 0 20px
 
     +media('<md')
-      +fz(20px, 24px)
+      +fz(28px, 28px)
 
     &--has-icon
       a
@@ -401,7 +420,7 @@ figure.nav-overlay
 
     &--accentuated
       a
-        +fz(28px, 32px)
+        +fz(25px, 28px)
 
     figure
       @extend .s
@@ -455,11 +474,11 @@ figure.nav-overlay
     +make-col-mobile-spacing
     +make-col-span(12)
     text-align: center
-    padding-top: 15%
+    padding-top: 20%
     margin-bottom: 50px
 
-    +media('<md')
-      padding-top: 40px
+    +media('<lg')
+      padding-top: 15%
 
     img
       position: absolute
@@ -495,7 +514,7 @@ figure.nav-overlay
       +fz(26px, 34px)
 
       +media('<md')
-        +fz(14px, 1)
+        +fz(19px, 25px)
         margin: 0 0 10px
 
     &__down
@@ -529,7 +548,7 @@ figure.nav-overlay
   background-size: cover
   background-attachment: scroll
   background-position: top center
-  padding: 0 30px 80px
+  padding: 0 40px 80px
 
   a
     color: #fff
@@ -541,8 +560,8 @@ figure.nav-overlay
     margin-top: -$header-height
 
   +media('<md')
-    padding-left: $content-border-size-mobile + 10
-    padding-right: $content-border-size-mobile + 10
+    padding-left: $content-border-size-mobile + 25
+    padding-right: $content-border-size-mobile + 25
 
   &--dark
     color: #fff
@@ -552,10 +571,10 @@ figure.nav-overlay
     color: #fff
 
   &--top-img
-    background-position: center 90px
+    // background-position: center 90px
 
   &__main
-    +fz(38px, 44px)
+    +fz(35px, 40px)
     font-weight: bold
     margin-bottom: 25px
 
@@ -566,11 +585,14 @@ figure.nav-overlay
     margin-bottom: 0
 
   &__content
-    +fz(28px, 35px)
-    padding-top: $header-height + 50
+    +fz(25px, 32px)
     margin: 0 auto
     max-width: $content-max-width
     margin: 0 auto
+    padding-top: $header-height + 50
+
+    +media('<md')
+      padding-top: 50px
 
   .button-callout
     padding-bottom: 0
@@ -599,7 +621,7 @@ figure.nav-overlay
       +fz(30px, 40px)
 
   &__heading
-    +fz(38px, 50px)
+    +fz(35px, 40px)
     font-weight: bold
     margin: 0 0 30px
     text-align: center
@@ -618,7 +640,7 @@ figure.nav-overlay
       text-align: left
 
     +media('<md')
-      +fz(20px, 27px)
+      +fz(22px, 28px)
 
   &__form
     @extend .clearfix
@@ -672,7 +694,8 @@ figure.nav-overlay
     border-top: 2px solid
 
     .module
-      padding: 45px 0
+      +media('>md')
+        padding: 45px 0
 
     &[class*='theme-brown']
       border-color: #767067

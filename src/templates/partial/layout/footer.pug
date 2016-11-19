@@ -1,8 +1,7 @@
 footer.footer
   .footer__logo-area
     figure
-      a(href='http://www.movember.com', target='_blank')
-        +svg('TrueNTH-Footer-Logo', 78.85, 90.99)
+      +svg('TrueNTH-Footer-Logo', 78.85, 90.99)
   ul.nav-list
     li.nav-list__item
       a(href=locals.content.home.link) Home
@@ -14,6 +13,9 @@ footer.footer
       a(href=locals.content.symptomTracker.link) Symptom Tracker
   ul.nav-list.nav-list--lower
     li.nav-list__item
+      a(href=locals.content.prostateCancerFacts.link) Prostate Cancer Facts
+  ul.nav-list.nav-list--lower
+    li.nav-list__item
       a(href=locals.content.termsAndConditions.link) Terms and Conditions
     li.nav-list__item
       a(href=locals.content.legal.link) Legal
@@ -21,7 +23,7 @@ footer.footer
       a(href=locals.content.contact.link) Contact
   .footer__logo-area
     figure
-      +svg('Movember-Footer-Logo', 84, 84)
+      a(href='http://www.movember.com', target='_blank')
+        +svg('Movember-Footer-Logo', 84, 84)
 
 include ../_inline-svg
-//- include ../_admin_controls

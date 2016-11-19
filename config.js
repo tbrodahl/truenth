@@ -27,6 +27,9 @@ module.exports = {
         "Another Option Here"
       ]
     },
+    prostateCancerFacts: {
+      link: '/what-is-prostate-cancer.html'
+    },
     termsAndConditions: {
       link: '/terms-and-conditions.html'
     },

@@ -13,10 +13,18 @@ module.exports = class NavToggle
       if $('html').hasClass(navExpandedClass)
         $('html').removeClass(navExpandedClass)
 
-    $('.side-nav a').on 'click touchend', (e) ->
+    $('.side-nav a').not('[data-toggle=modal]').on 'click touchend', (e) ->
       e.preventDefault()
       href = $(this).attr('href')
       $('html').removeClass(navExpandedClass)
       setTimeout ->
         window.location = href
       , 1000
+
+    $('.side-nav a[data-toggle=modal]').on 'click touchend', (e) ->
+      e.preventDefault()
+      target = $(this).attr('data-target')
+      $('html').removeClass(navExpandedClass)
+      setTimeout ->
+        $(target).modal('show')
+      , 500

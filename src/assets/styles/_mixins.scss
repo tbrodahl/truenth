@@ -50,8 +50,8 @@ $base-img-path: '/images/';
 
 @mixin make-col-mobile-spacing() {
   @include media('<md') {
-    padding-left: $content-border-size-mobile + 10px;
-    padding-right: $content-border-size-mobile + 10px;
+    padding-left: $content-border-size-mobile + 25px;
+    padding-right: $content-border-size-mobile + 25px;
   }
 }
 

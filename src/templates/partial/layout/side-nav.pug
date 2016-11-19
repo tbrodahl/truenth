@@ -22,10 +22,10 @@ nav.side-nav
           |Symptom Tracker<figure></figure>
 
       li.side-nav-items__item
-        <a href=#{locals.content.joinUs.link}>Join Us<figure></figure></a>
-
-      li.side-nav-items__item
-        <a href=#{locals.content.logIn.link}>Log In<figure></figure></a>
-
-      li.side-nav-items__item
         <a href=#{locals.content.contact.link}>Contact<figure></figure></a>
+
+      li.side-nav-items__button
+        a(data-toggle="modal" data-target="#modal-register") Join Us
+
+      li.side-nav-items__button
+        a(data-toggle="modal" data-target="#modal-loginr") Log In
