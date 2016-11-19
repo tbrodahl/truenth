@@ -16,16 +16,19 @@
 
 .modal.fade#modal-login
   .modal-dialog(role='document')
-    .modal-content.box-modal
+    .modal-content.box-modal.box-modal--login
       .box-modal__inner
         a.box-modal__close(type='button', data-dismiss='modal', aria-label='Close')
-        h3.box-modal__title Join Us!
-        p.box-modal__copy It’s going to take a group effort to improve the prostate cancer experience for future generations.
-        span.box-modal__sub If You're A Patient
-        a.button.button-large.button--teal Create Account
-      .box-modal__footer
-        span.box-modal__sub Want to Receive News?
-        form(class='js-mock-submit')
-          span.submitted-text Thank you!
-          input(type='text', placeholder="Email Address")
-          button(type='submit').button Sign Up
+        h3.box-modal__title Login
+
+        a.button.button--facebook.button-large.button--teal.button--has-svg
+          +svg('Facebook-Icon', 15, 31)
+          |Log in with Facebook
+        a.button.button--google.button-large.button--teal.button--has-svg
+          +svg('Google-Icon', 20, 31)
+          |Log in with Google
+        .box-modal__divider
+        form
+          input(type="text", placeholder="Email Address")
+          input(type="text", placeholder="Password")
+          a.button.button-large.button--teal(type="submit") Log In

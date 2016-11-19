@@ -6,11 +6,11 @@ block vars
 block content
   .page-intro.page-intro--dark(style="background-image: url(/images/About-Top-Background.jpg);")
     .page-intro__content
-      h1.page-intro__main We're a collaborative program <br/>funded and created by Movember.
-      p.page-intro__sub Our mission is to improve the prostate cancer journey for men all over the world by bringing together the voices of doctors, patients, caregivers, universities, and volunteers.
+      h1.page-intro__main We're a collaborative program <br/>funded and created by <a href='http://www.movember.com', target='_blank'>Movember</a>.
+      p.page-intro__sub Our mission is to improve the prostate cancer journey for men and their partners and caregivers, by bringing their voices together with doctors, researchers, and volunteers.
       .button-callout
-        a.button.button--large.button--teal(href=locals.content.joinUs.link) Join Us
         figure.js-scroll-down(data-target='.page-intro')
+
   .module-wrap.module-wrap--watch
     img(src="/images/About-Video-Export.jpg")
     .module-wrap--inner
@@ -18,25 +18,53 @@ block content
         a.button.button--large.button--teal(href="#") Watch
   .module-wrap.module-wrap--theme-brown
     .module.module--theme-brown
-      .accent-heading Objective N<em>o</em>1: Practical Tools
+      .accent-heading Objective N<em>o</em>6: Custom Tools
       p.module__heading Our Current Projects
-      p.module__body We have two projects currently running and more on the way.
+      p.module__body We have two tools currently running and more on the way.
       .icon-box-group__wrapper
         .icon-box-group
           .icon-box-wrap
-            include ../templates/partial/modules/tool_1
-          .icon-box-wrap
-            include ../templates/partial/modules/tool_2
-          .icon-box-wrap
-            include ../templates/partial/modules/tool_3
-          .icon-box-wrap
-            include ../templates/partial/modules/tool_4
+            a.icon-box.icon-box--theme-compass(href=locals.content.decisionSupport.link)
+              strong.icon-box__subhead Tool N<em>o</em>1: Post Diagnosis
+              h4.icon-box__head Decision Support
+              span.icon-box__lowhead Questionnaire / Education / Report
+              +svg('DS-Compass', 92, 92, 'icon-box__icon')
 
+          .icon-box-wrap
+            a.icon-box.icon-box--theme-compass.icon-box--theme-brown(href=locals.content.symptomTracker.link)
+              strong.icon-box__subhead Tool N<em>o</em>2: Monitoring
+              h4.icon-box__head Symptom Tracker
+              span.icon-box__lowhead Questionnaire / 10 Mins
+              +svg('ST-Graph', 90, 90, 'icon-box__icon')
+          .icon-box-wrap
+            .icon-box.icon-box--theme-brown.icon-box--theme-inactive
+              strong.icon-box__subhead Tool N<em>o</em>3: All Stages
+              h4.icon-box__head Exercise And Diet
+              span.icon-box__lowhead Personalized Guides
+              +svg('Sexual-Recovery-Coming-Soon', 90, 90, 'icon-box__icon')
+          .icon-box-wrap
+            .icon-box.icon-box--theme-brown.icon-box--theme-inactive
+              strong.icon-box__subhead Tool N<em>o</em>4: Post Treatment
+              h4.icon-box__head Sexual Recovery
+              span.icon-box__lowhead Treatment Plan
+              +svg('Sexual-Recovery-Coming-Soon', 90, 90, 'icon-box__icon')
+          .icon-box-wrap
+            .icon-box.icon-box--theme-inactive
+              strong.icon-box__subhead Tool N<em>o</em>5: All Stages
+              h4.icon-box__head Lived Experience
+              span.icon-box__lowhead Video Testimonials
+              +svg('Coming-Soon', 90, 90, 'icon-box__icon')
+          .icon-box-wrap
+            .icon-box.icon-box--theme-inactive
+              strong.icon-box__subhead Tool N<em>o</em>6: Post Diagnosis
+              h4.icon-box__head Care Plan
+              span.icon-box__lowhead Navigation Resources
+              +svg('Coming-Soon', 90, 90, 'icon-box__icon')
   .module-wrap.module-wrap--theme-gray-light
     .module.module--theme-gray
       .accent-heading Objective N<em>o</em>6: Collaboration
       p.module__heading Our USA Partners
-      p.module__body We have brought together leaders and experts that are actively <br/> working with us on the best solutions for prostate cancer.
+      p.module__body We have brought together a Network that is actively working with us on the best tools for living with and beyond prostate cancer.
       .partner-grid
         .partner-grid__item
           +svg('Lived-Experience-Coming-Soon', 90, 90)
@@ -60,9 +88,9 @@ block content
           +svg('Lived-Experience-Coming-Soon', 90, 90)
   .module-wrap.module-wrap--theme-blue
     .module.module--theme-gray
-      .accent-heading Objective N<em>o</em>6: Global Strategy
-      p.module__heading Worldwide Chapters
-      p.module__body The TrueNTH Program is represented in 7 countries around the world:
+      .accent-heading Objective N<em>o</em>1: TrueNTH Community
+      p.module__heading Global Strategy
+      p.module__body TrueNTH is currently active in 7 countries around the world:
       .world-map
         img(src="/images/World-Map@2x.png")
         ul.tooltips

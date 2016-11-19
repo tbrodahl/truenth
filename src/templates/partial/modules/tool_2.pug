@@ -1,5 +1,9 @@
 .icon-box-wrap__main.icon-box.icon-box--theme-compass.icon-box--theme-brown
-  strong.icon-box__subhead Tool N<em>o</em>2: Monitoring
-  h4.icon-box__head Symptom Tracker
-  span.icon-box__lowhead Questionnaire / 10 Mins
-  +svg('ST-Graph', 90, 90, 'icon-box__icon')
+  .icon-box-wrap__main__left
+    strong.icon-box__subhead Tool N<em>o</em>2: Monitoring
+    h4.icon-box__head Symptom Tracker
+    span.icon-box__lowhead Questionnaire / 10 Mins
+    +svg('ST-Graph', 90, 90, 'icon-box__icon')
+  .icon-box-wrap__main__right
+    a.icon-box__button.icon-box__button--main(href=locals.content.symptomTracker.link)
+      span Start<figure></figure>

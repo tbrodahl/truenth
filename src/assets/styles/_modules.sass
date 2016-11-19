@@ -36,6 +36,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
   &:visited,
   &:active
     outline: none !important
+    text-decoration: none !important
 
   // sizes
 
@@ -57,6 +58,40 @@ $default-transition: all $default-transition-speed $default-transition-easing
 
   &--white
     +make-button(white, $teal, $gray-lighter)
+
+  &--facebook
+    +make-button(#3A579A, white)
+
+  &--google
+    +make-button(#E04B33, white)
+
+  &--has-svg
+    position: relative
+    display: inline-block
+    height: 50px
+    line-height: 50px
+    text-align: left
+    padding: 0 0 0 70px
+    +pseudo-el(1, 22, rgba(255,255,255,.2))
+    margin: 0 0 10px
+
+    &::after
+      position: absolute
+      left: 55px
+      top: 50%
+      margin-top: -11px
+
+    svg
+      position: absolute
+      left: 20px
+      top: 8px
+
+  &--facebook
+    svg
+
+  &--google
+    svg
+      top: 10px
 
   &--scrolled
     display: none
@@ -242,7 +277,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
 
   &--full-width
     margin: 0 auto
-    max-width: 780px
+    max-width: $content-max-width
 
   &__item
     // +make-col
@@ -324,11 +359,19 @@ $default-transition: all $default-transition-speed $default-transition-easing
 .icon-box
   @extend .clearfix
   background: $gray-darker
+  color: #fff
+  display: block
   padding: 20px 20px 20px 135px
   margin: 0 10px 0 0
   position: relative
   min-height: 130px
   max-height: 100%
+
+  &:active,
+  &:focus,
+  &:visited
+    outline: none
+    color: #fff
 
   .icon-box-wrap &
     padding-left: 130px
@@ -336,8 +379,21 @@ $default-transition: all $default-transition-speed $default-transition-easing
   strong, h4, span
     display: block
 
+  .icon-box-group &
+    width: 100%
+    margin-right: 0
+
   &--theme-brown
     background: rgba(57, 56, 51, 0.8)
+
+  &.icon-box--theme-inactive
+    background: rgba(51, 54, 56, 0.5)
+
+  &.icon-box--theme-brown
+    background: rgba(57, 56, 51, 0.8)
+
+    &.icon-box--theme-inactive
+      background: rgba(57, 56, 51, 0.5)
 
   &__subhead
     +fz(16px, 20px)
@@ -426,20 +482,36 @@ $default-transition: all $default-transition-speed $default-transition-easing
       margin: 0 0 10px
       height: 72px
 
+      .page-intro &
+        min-width: 250px
+
       &:hover
         background: darken($teal, 15%)
 
         figure
           color: #fff
 
+    &--more-info
+      background: $gold-alt
+      figure
+        color: darken($gold-alt, 15%)
+
+      &:hover
+        background: darken($gold-alt, 15%)
+
+      span
+        padding-right: 0
+      +media('>md')
+        +fz(17px, 1)
+        letter-spacing: 2px
+        padding: 20px
+        span
+          line-height: 32px
+
     &--sub
       +fz(14px, 18px)
       letter-spacing: 2px
       padding: 20px
-      background: $gold-alt
-
-      &:hover
-        background: darken($gold-alt, 15%)
 
 .icon-box-group__wrapper
   @extend .outer-container
@@ -475,17 +547,41 @@ $default-transition: all $default-transition-speed $default-transition-easing
     // +make-col-span(6)
 
 .icon-box-wrap
-  display: flex
   $small-size: 3.7
   max-width: 715px
   margin: 0 auto
+
+  +media('>md')
+    display: flex
 
   +media('<md')
     display: block
 
   &__main
-    +make-col-span(12 - $small-size)
+    +make-col-span(12)
     background: rgba(51, 54, 56, 0.8)
+    +media('>md')
+      display: flex
+
+    +media('<md')
+      padding-bottom: 100px
+
+    &__left
+      +make-col-span(7.5)
+
+      +media('<md')
+        +make-col-span(12)
+        margin-bottom: $grid-gutter-width
+
+    &__right
+      +make-col-span(4.5)
+      float: right
+      margin-top: 11px
+
+      +media('<md')
+        width: calc(100% - 30px)
+        position: absolute
+        left: $grid-gutter-width
 
     &.icon-box--theme-inactive
       background: rgba(51, 54, 56, 0.5)
@@ -659,16 +755,16 @@ select
     opacity: 1
 
 body.modal-open
-  .modal
+  .modal.is-modal-active
+    +media()
     display: flex !important
     height: 100%
-    align-items: center
-    justify-content: center
 
     .modal-dialog
       margin: auto
       width: 600px
       border-radius: 0
+
 
       +media('<md')
         width: 100%
@@ -677,6 +773,8 @@ body.modal-open
   border-radius: 0
   text-align: center
 
+$box-modal-inner-width: 360px
+
 .box-modal
   @extend .clearfix
   color: #4B5E6F
@@ -684,11 +782,32 @@ body.modal-open
 
   .button-large
     display: inline-block
-    min-width: 350px
+    width: 100%
+    overflow: hidden
+    &:not(.button--has-svg)
+      +media('<md')
+        padding: 0
+    +media('>md')
+      width: auto
+      min-width: $box-modal-inner-width
+
+    +media('<md')
+      +fz(11px, 50px)
+
+  &__divider
+    height: 2px
+    background: #E3E0DB
+    position: relative
+    margin: 10px auto 20px auto
+    width: 100%
+
+    +media('>md')
+      width: $box-modal-inner-width
 
   &__close
     @extend .s
     @extend .s-close-x
+    cursor: pointer
     +fz(30px, 1)
     position: absolute
     right: 20px
@@ -697,6 +816,9 @@ body.modal-open
 
   &__inner
     padding: 40px
+
+    +media('<md')
+      padding: 20px
 
   &__title
     +pseudo-el(128, 1, #4C5E6E)
@@ -724,6 +846,39 @@ body.modal-open
     letter-spacing: 3px
     margin: 0 0 20px
 
+  form
+    input
+      @extend %default-transition
+      display: inline-block
+      background: #E3E0DB
+      height: 44px
+      padding: 5px
+      border: 2px solid #E3E0DB
+      min-width: 215px
+
+      &:focus,
+      &:active
+        border: 2px solid $teal
+        outline: none !important
+
+    button
+      display: inline-block
+      @extend .button
+      border: 0
+      @extend .button--teal
+      @extend .button--small
+      position: relative
+      top: -1px
+
+  &--login
+    form
+      input
+        display: block
+        margin: 0 auto 10px
+        width: 100%
+        +media('>md')
+          width: $box-modal-inner-width
+
   &__footer
     @extend .clearfix
     padding: 20px 40px
@@ -733,32 +888,13 @@ body.modal-open
     float: left
     width: 100%
 
-    .box-modal__sub
-      color: $teal
-
     form
       input
-        @extend %default-transition
-        display: inline-block
-        background: #fff
-        height: 44px
-        padding: 5px
-        border: 2px solid #fff
-        min-width: 215px
+        background: #FFF
+        border-color: #FFF
 
-        &:focus,
-        &:active
-          border: 2px solid $teal
-          outline: none !important
-
-      button
-        display: inline-block
-        @extend .button
-        border: 0
-        @extend .button--teal
-        @extend .button--small
-        position: relative
-        top: -1px
+    .box-modal__sub
+      color: $teal
 
 // stubbed
 form

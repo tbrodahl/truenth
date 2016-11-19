@@ -10,6 +10,16 @@ module.exports = class Global
     $.extend($.easing, window.easing)
 
   addPlugins: ->
+    $('.modal').on('show.bs.modal', (e) ->
+      $(this).addClass('is-modal-active')
+    )
+    $('.modal').on('hide.bs.modal', (e) ->
+      $this = $(this)
+      setTimeout ->
+        $this.removeClass('is-modal-active')
+      , 200
+
+    )
 
 
   bindEvents: ->

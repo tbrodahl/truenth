@@ -38,6 +38,7 @@ module.exports = {
     dest: './dist',
     browserSync: {
       open: false,
+      ghostMode: false,
       notify: {
         styles: {
           top: 'auto',

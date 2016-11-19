@@ -135,12 +135,9 @@ $header-height-mobile: 92px
     a
       display: inline-block
       position: relative
-      .is-scrolled &
-        background: $gray-light
 
       +media('<lg')
-        .is-scrolled &
-          background: $gray-light
+        background: $gray-light
 
   &__menu
     float: left
@@ -437,8 +434,12 @@ figure.nav-overlay
     padding-top: $header-height-mobile
 
   +media('>md')
-    padding-top: $header-height
+    padding-top: 140px
     margin-top: -$header-height
+
+  .is-upper-banner-closed &
+    +media('>md')
+      padding-top: 160px
 
   .more-arrow > a
     color: #FFF
@@ -477,7 +478,8 @@ figure.nav-overlay
       text-align: center
       position: relative
       z-index: 10
-      margin-bottom: 50px
+      margin: 0 auto 50px
+      max-width: 760px
 
     &__main
       +fz(38px, 1)
@@ -527,7 +529,12 @@ figure.nav-overlay
   background-size: cover
   background-attachment: scroll
   background-position: top center
-  padding-bottom: 80px
+  padding: 0 30px 80px
+
+  a
+    color: #fff
+    &:hover
+      color: $gray-lightest
 
   +media('>md')
     padding-top: $header-height
