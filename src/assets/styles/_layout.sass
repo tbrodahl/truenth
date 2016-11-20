@@ -170,6 +170,9 @@ $header-height-mobile: 92px
 
   &__meta
     float: right
+    img
+      width: 45px
+      position: relative
 
     +media('<md')
       display: none
@@ -234,6 +237,15 @@ $header-height-mobile: 92px
         position: relative
         top: auto
         left: auto
+
+      &.button--back-arrow
+        padding-left: 50px
+        figure
+          @extend .s-arrow-left
+          position: absolute
+          color: #fff
+          left: 10px
+          top: 6px
 
   .button
     min-height: 32px
@@ -320,7 +332,7 @@ figure.nav-overlay
   position: fixed
   width: 100%
   height: 100%
-  z-index: 99999
+  z-index: 500
   display: none
   visibility: hidden
   cursor: not-allowed
@@ -340,7 +352,7 @@ figure.nav-overlay
   background: $gray-lighter
   color: $gray-dark
   width: $side-nav-width
-  z-index: 100
+  z-index: 1000
   left: -1*$side-nav-width
 
   &__close
@@ -396,6 +408,9 @@ figure.nav-overlay
       @extend .button--small
       @extend .button--white
       color: $teal
+
+      &:hover
+        background: #D2D1C5
 
   &__item
     display: block
@@ -464,7 +479,7 @@ figure.nav-overlay
     color: #FFF
 
     figure
-      color: $teal
+      color: #586C73
 
     &:hover
       color: $teal
@@ -476,15 +491,25 @@ figure.nav-overlay
     text-align: center
     padding-top: 20%
     margin-bottom: 50px
+    background: #D7E1E3
 
     +media('<lg')
       padding-top: 15%
 
-    img
+    &__img
       position: absolute
       left: 0
       top: 0
       z-index: 0
+
+      &--desktop
+        +media('<md')
+          display: none
+
+      &--mobile
+        display: none
+        +media('<md')
+          display: block
 
     +media('>md', '<=lg')
       padding-bottom: 300px
@@ -563,6 +588,21 @@ figure.nav-overlay
     padding-left: $content-border-size-mobile + 25
     padding-right: $content-border-size-mobile + 25
 
+  &--about
+    background-color: #5D737A
+
+  &--decision-support
+    background-color: #55666D
+
+  &--symptom-tracker
+    background-color: #746E5E
+
+  &--contact
+    background-color: #5E676E
+
+  &--prostate-facts
+    background-color: #4C5246
+
   &--dark
     color: #fff
 
@@ -580,6 +620,11 @@ figure.nav-overlay
 
     &--accent
       color: #D2D1C5
+
+    a
+      text-decoration: underline
+      &:hover
+        text-decoration: none
 
   &__sub
     margin-bottom: 0
@@ -646,6 +691,7 @@ figure.nav-overlay
     @extend .clearfix
     display: inline-block
     margin-top: 25px
+    width: 100%
 
   &__img
     text-align: center

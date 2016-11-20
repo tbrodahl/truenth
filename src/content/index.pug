@@ -6,7 +6,8 @@ block vars
 block content
   .home-intro
     .intro
-      img(src='/images/Home-Truck-Top-001.jpg')
+      img.intro__img.intro__img--desktop(src='/images/Home-Truck-Top-001.jpg')
+      img.intro__img.intro__img--mobile(src='/images/Home-Truck-Top-Mobile.jpg')
       .intro__content
         p.intro__sub TrueNTH is a collective approach to improving quality of life before, during, and after treatment for prostate cancer.
         a.intro__down.js-scroll-down(data-target='.home-intro .intro')
@@ -69,7 +70,7 @@ block content
       p.module__body 1 in 7 men will be diagnosed with prostate cancer in their lifetime.
       p.module__body In 2015, approximately 220,800 men will be diagnosed with prostate cancer in the USA.
       .more-arrow
-        a.more-arrow__link(href="#")
+        a.more-arrow__linka(href=locals.content.prostateCancerFacts.link)
           span Prostate Cancer Facts <figure></figure>
   .module-wrap.module-wrap--confidence
     .module

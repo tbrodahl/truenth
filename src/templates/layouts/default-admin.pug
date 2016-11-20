@@ -1,0 +1,41 @@
+include ../mixins/index
+
+block vars
+  - var bodyClass = 'admin'
+
+doctype html
+html.no-js.is-showing-logged-in.is-upper-banner-closed(lang='')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    title= title ? baseTitle + '|' + title : baseTitle
+
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+    <script>window.jQuery || document.write('<script src="/scripts/jquery.min.js"><\/script>')</script>
+
+    link(rel='apple-touch-icon', href='apple-touch-icon.png')
+    link(rel='stylesheet', href='/styles/app.css')
+    <!--[if lte IE 6]>
+    <style>#top, #bottom, #left, #right { display: none; }</style>
+    <![endif]-->
+
+  body(class='page-' + bodyClass)
+    //if lt IE 8
+      p.browserupgrade
+        | You are using an outdated browser. Please a(href='http://browsehappy.com/') upgrade your browser to improve your experience.
+    include ../partial/layout/side-nav
+    block upper
+      include ../partial/upper_banner
+    main.main
+      block header
+        include ../partial/layout/header
+      block content
+      block footer
+        include ../partial/layout/footer
+    block modals
+      include ../partial/_modals
+    script(src='/scripts/vendor.js')
+    script(src='/scripts/app.js')

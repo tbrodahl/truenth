@@ -3,6 +3,12 @@ $default-transition-easing: ease-out
 
 $default-transition: all $default-transition-speed $default-transition-easing
 
+a
+  &:not(.button)
+    &:active
+      color: #4C5E6E
+      outline: none !important
+
 %default-transition
   transition: $default-transition
 
@@ -38,6 +44,9 @@ $default-transition: all $default-transition-speed $default-transition-easing
     outline: none !important
     text-decoration: none !important
 
+  &:active
+    color: #4C5E6E
+
   // sizes
 
   &--large
@@ -65,13 +74,26 @@ $default-transition: all $default-transition-speed $default-transition-easing
   &--google
     +make-button(#E04B33, white)
 
+  &--white-trans
+    border: 2px solid #fff
+    color: #FFF
+    &:hover
+      background: transparent !important
+      color: $gray-lightest
+      border-color: $gray-lighter
+
+  &--facebook
+    svg
+
+  &--google
+    svg
+      top: 10px
+
   &--has-svg
     position: relative
     display: inline-block
-    height: 50px
-    line-height: 50px
     text-align: left
-    padding: 0 0 0 70px
+    padding: 28px 0 0 70px !important
     +pseudo-el(1, 22, rgba(255,255,255,.2))
     margin: 0 0 10px
 
@@ -84,14 +106,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
     svg
       position: absolute
       left: 20px
-      top: 8px
-
-  &--facebook
-    svg
-
-  &--google
-    svg
-      top: 10px
+      top: 20px
 
   &--scrolled
     display: none
@@ -168,6 +183,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
   figure
     @extend .s
     @extend .s-arrow-right
+    color: #586C73
     +fz(31px, 15px)
     position: absolute
     right: 0
@@ -375,12 +391,19 @@ $default-transition: all $default-transition-speed $default-transition-easing
 
   &:active,
   &:focus,
-  &:visited
+  &:visited,
+  &:hover
     outline: none
     color: #fff
 
+  &:hover
+    color: #7C959E
+
   .icon-box-wrap &
     padding-left: 130px
+
+    +media('<sm')
+      padding: 130px 20px 20px 20px
 
   strong, h4, span
     display: block
@@ -447,6 +470,11 @@ $default-transition: all $default-transition-speed $default-transition-easing
     left: 20px
     top: 20px
 
+    +media('<sm')
+      left: 50%
+      margin-left: -45px
+
+
   &__button
     @extend %default-transition
     +fz(22px, 26px)
@@ -473,7 +501,7 @@ $default-transition: all $default-transition-speed $default-transition-easing
       figure
         @extend .s
         @extend .s-arrow-right
-        +fz(30px, 1)
+        +fz(31px, 1)
         position: absolute
         margin-left: 5px
         color: $teal-dark
@@ -628,7 +656,8 @@ a.profile-toggle
     @extend .s
     @extend .s-caret-down
     +fz(25px, 1)
-    left: 1px
+    left: -6px
+    top: -4px
 
 // bootstrap overrides
 .dropdown-toggle::after
@@ -756,30 +785,34 @@ select
   margin: 0 0 30px
 
 .modal-backdrop
-  background: #3B4449
+  background: rgba(59,68,73,0.9)
   &.in
     opacity: 1
 
 body.modal-open
   .modal.is-modal-active
-    +media()
-    display: flex !important
     height: 100%
+    +media('>md')
+      display: flex !important
 
     .modal-dialog
       margin: auto
-      width: 600px
+      width: 450px
       border-radius: 0
 
 
       +media('<md')
+        max-width: 320px
+        margin: 0 auto
+
+      +media('<sm')
         width: 100%
 
 .modal-content
   border-radius: 0
   text-align: center
 
-$box-modal-inner-width: 360px
+$box-modal-inner-width: 318px
 
 .box-modal
   @extend .clearfix
@@ -789,16 +822,15 @@ $box-modal-inner-width: 360px
   .button-large
     display: inline-block
     width: 100%
+    margin: 0 auto
     overflow: hidden
-    &:not(.button--has-svg)
-      +media('<md')
-        padding: 0
-    +media('>md')
-      width: auto
-      min-width: $box-modal-inner-width
+    height: 72px
+    +fz(17px, 1)
+    padding: 27px 15px
 
     +media('<md')
-      +fz(11px, 50px)
+      max-width: 100%
+      +fz(15px, 1)
 
   &__divider
     height: 2px
@@ -819,6 +851,7 @@ $box-modal-inner-width: 360px
     right: 20px
     top: 25px
     color: #7C959E
+    z-index: 500
 
   &__inner
     padding: 40px
@@ -882,22 +915,28 @@ $box-modal-inner-width: 360px
         display: block
         margin: 0 auto 10px
         width: 100%
-        +media('>md')
-          width: $box-modal-inner-width
 
   &__footer
     @extend .clearfix
-    padding: 20px 40px
+    padding: 20px
     background: rgba(181, 175, 167, 0.4)
     display: inline-block
     clear: both
     float: left
     width: 100%
 
+    +media('<md')
+      padding-left: 15px
+      padding-right: 15px
+
     form
       input
         background: #FFF
         border-color: #FFF
+
+        +media('<md')
+          min-width: 100px
+          width: 150px
 
     .box-modal__sub
       color: $teal

@@ -3,7 +3,10 @@ module.exports = class Resize
     $intro = $('.intro')
     $intro.imagesLoaded ->
       $(window).on 'resize.setElements', _.debounce (e) ->
-        imgHeight = $intro.find('img').height()
+        if $(window).width() <= 767
+          imgHeight = $intro.find('img.intro__img--mobile').height()
+        else
+          imgHeight = $intro.find('img.intro__img--desktop').height()
         $intro.css('height', imgHeight)
       , 50
       .trigger('resize.setElements')
