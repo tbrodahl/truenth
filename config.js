@@ -6,10 +6,12 @@ module.exports = {
       link: '/'
     },
     about: {
-      link: '/about.html'
+      link: '/about.html',
+      videoSrc: '//videos.sproutvideo.com/embed/a49bd1bd181ae3c72c/b947ee462a45662e?type=hd&autoPlay=true'
     },
     decisionSupport: {
-      link: '/decision-support.html'
+      link: '/decision-support.html',
+      videoSrc: '//videos.sproutvideo.com/embed/e89bd1bd181ae4cf60/1e7fa0493e528f7c?type=hd&playerColor=2f3437&autoPlay=true'
     },
     symptomTracker: {
       link: '/symptom-tracker.html'

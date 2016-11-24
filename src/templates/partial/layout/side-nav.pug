@@ -6,26 +6,29 @@ nav.side-nav
     h3.side-nav__heading Navigation
     ul.side-nav-items
       li.side-nav-items__item.side-nav-items__item--home
-        <a href=#{locals.content.home.link}>Home<figure></figure></a>
+        <a href=#{locals.content.home.link}>Home</a>
 
       li.side-nav-items__item
-        <a href=#{locals.content.about.link}>About TrueNTH<figure></figure></a>
+        <a href=#{locals.content.about.link}>About TrueNTH</a>
 
       li.side-nav-items__item.side-nav-items__item--has-icon.side-nav-items__item--accentuated
         a(href=locals.content.decisionSupport.link)
           +svg('DS-Icon-Nav', 32, 32)
-          |Decision Support<figure></figure>
+          |Decision Support
 
       li.side-nav-items__item.side-nav-items__item--has-icon.side-nav-items__item--accentuated
         a(href=locals.content.symptomTracker.link)
           +svg('ST-Icon-Nav', 32, 32)
-          |Symptom Tracker<figure></figure>
+          |Symptom Tracker
 
       li.side-nav-items__item
-        <a href=#{locals.content.contact.link}>Contact<figure></figure></a>
+        <a href=#{locals.content.prostateCancerFacts.link}>Prostate Cancer Facts</a>
+
+      li.side-nav-items__item
+        <a href=#{locals.content.contact.link}>Contact</a>
 
       li.side-nav-items__button
         a(data-toggle="modal" data-target="#modal-register") Join Us
 
       li.side-nav-items__button
-        a(data-toggle="modal" data-target="#modal-loginr") Log In
+        a(data-toggle="modal" data-target="#modal-login") Log In

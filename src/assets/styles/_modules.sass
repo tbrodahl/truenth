@@ -103,6 +103,9 @@ a
       top: 50%
       margin-top: -11px
 
+      +media('<md')
+        display: none
+
     svg
       position: absolute
       left: 20px
@@ -612,10 +615,14 @@ a
       float: right
       margin-top: 11px
 
-      +media('<md')
+      +media('<md', '>sm')
         width: calc(100% - 30px)
         position: absolute
         left: $grid-gutter-width
+
+      +media('<sm')
+        float: none
+        width: 100%
 
     &.icon-box--theme-inactive
       background: rgba(51, 54, 56, 0.5)
@@ -830,7 +837,9 @@ $box-modal-inner-width: 318px
 
     +media('<md')
       max-width: 100%
-      +fz(15px, 1)
+      padding: 30px 0 0 55px !important
+      +fz(12px, 1)
+
 
   &__divider
     height: 2px

@@ -9,15 +9,15 @@ block content
       h1.page-intro__main Symptom Tracker
       p.page-intro__sub Track your symptoms to see how they are changing over time, and how they compare to other men with prostate cancer.
       .button-callout
-        a.button--teal.icon-box__button.icon-box__button--main(href=locals.content.joinUs.link)
+        a.button--teal.icon-box__button.icon-box__button--main(data-toggle="modal" data-target="#modal-register")
           span Start<figure></figure>
         strong.js-scroll-down(data-target='.page-intro') Learn More
         figure.js-scroll-down(data-target='.page-intro')
-  .module-wrap.module-wrap--watch
+  .module-wrap.module-wrap--watch(data-iframe-src=locals.content.about.videoSrc)
     img(src="/images/ST-Video-Export.jpg")
     .module-wrap--inner
       .button-callout
-        a.button.button--large.button--teal(href="#") Watch
+        a.button.button--large.button--teal(href="#").js-video-toggle Watch
   .module-wrap.module-wrap--symptom.module-wrap--theme-brown
     .module
       .accent-heading Objective N<em>o</em>6: Custom Tools – Symptom Tracker
@@ -27,7 +27,6 @@ block content
       img(src="/images/sample-graph@2x.png")
       .next-down
         p.next-down__copy We’ve created a tool to track your prostate cancer treatment side effects over time and provide personal guidance.
-        figure
       .icon-box-wrap
         include ../templates/partial/modules/tool_2
 

@@ -9,20 +9,20 @@ block content
       h1.page-intro__main Decision Support
       p.page-intro__sub Choosing which treatment path to go down can be confusing and overwhelming. Being informed of the different options and how each fits into your life is critical in making the best choice for you.
       .button-callout.button-callout--has-text
-        a.button--teal.icon-box__button.icon-box__button--main(href=locals.content.joinUs.link)
+        a.button--teal.icon-box__button.icon-box__button--main(data-toggle="modal" data-target="#modal-register")
           span Start<figure></figure>
         strong.js-scroll-down(data-target='.page-intro') Learn More
         figure.button-callout__scroll.js-scroll-down(data-target='.page-intro')
-  .module-wrap.module-wrap--watch
+  .module-wrap.module-wrap--watch(data-iframe-src=locals.content.decisionSupport.videoSrc)
     img(src="/images/DS-Video-Export.jpg")
     .module-wrap--inner
       .button-callout
-        a.button.button--large.button--teal(href="#") Watch
+        a.button.button--large.button--teal(href="#").js-video-toggle Watch
   .module-wrap.module-wrap--theme-blue
     .module.module--theme-blue
       .accent-heading Objective N<em>o</em>6: Custom Tools – Decision Support
       p.module__heading Making Your Decision
-      p.module__body As you decide which treatment is best for you, it is important to prepare for the discussions with your doctor(s):
+      p.module__body As you decide which treatment is best for you, it is important to prepare for the discussions with your doctor:
       .list-module
         .accent-heading Helpful Tip N<em>o</em>3: Decision Making Checklist
         ul.list-module__items
@@ -44,10 +44,8 @@ block content
       .accent-heading Tool N<em>o</em>1: Post Diagnosis
       h3.module__head Decision Support Tool
       p.module__body Our tool was created to help you determine which option is best for you.
-      p.module__body After you have answered the questionnaire, you will receive personalized education and support to discuss the best path forward with your doctor(s).
-      p.module__body You can then download the report and share it with your doctor(s).
-      .next-down
-        figure
+      p.module__body After you have answered the questionnaire, you will receive personalized education and support to discuss the best path forward with your doctor.
+      p.module__body You can then download the report and share it with your doctor.
       .icon-box-wrap
         include ../templates/partial/modules/tool_1
 
