@@ -5,10 +5,11 @@ module.exports = class Video
     @build()
 
   build: ->
-    console.log 'build'
+    $('.js-video-toggle a').on 'click', (e) -> e.preventDefault()
     $('.js-video-toggle').on 'click', (e) ->
       e.preventDefault()
-      $div = $(this).closest('[data-iframe-src]')
+      $('html').addClass('is-video-active')
+      $div = $(this)
       src = $div.data('iframe-src')
       $div.append("<iframe src='#{src}' allowfullscreen frameborder='0' />")
       .addClass('is-js-video-active')
