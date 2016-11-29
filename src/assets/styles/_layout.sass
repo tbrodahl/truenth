@@ -752,25 +752,25 @@ figure.nav-overlay
 
     img
       left: $content-border-size
-      width: calc(100% - ($content-border-size * 2))
+      width: calc(100% - 60px)
       position: relative
 
       +media('<md')
         left: $content-border-size-mobile
-        width: calc(100% - ($content-border-size-mobile * 2))
+        width: calc(100% - 40px)
 
     iframe
       z-index: 1000
       // width: 90%
       left: $content-border-size
-      width: calc(100% - ($content-border-size * 2))
+      width: calc(100% - 60px)
       position: absolute
       height: 100%
       top: 0
 
       +media('<md')
         left: $content-border-size-mobile
-        width: calc(100% - ($content-border-size-mobile * 2))
+        width: calc(100% - 40px)
 
     .module-wrap--inner
       position: absolute
