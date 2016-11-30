@@ -10,13 +10,19 @@ The entire `dist/` directory, or set of compiled artifacts (HTML, CSS, and JavaS
 
 We are using [gulp](http://www.gulpjs.com), the amazing Javascript Task Runner, for a simple compilation of [SASS](http://sass-lang.com/), [CoffeeScript](http://coffeescript.org/), and [PUG](https://pugjs.org) files. A few other tasks related to asset compilation are included as well; see the `gulpfile.js` file for the full set of tasks.
 
+## This project uses BrowserSync
+
+We are using [Bower](http://www.bower.io) to manage front-end asset dependencies.
+
 Installation is simple:
 
-### Three Step Install
+### Five Step Install
 
 1. [Install node and npm](https://gist.github.com/isaacs/579814)
 2. Install gulp: `npm install -g gulp`
-3. Install dependencies (reads from package.json): `npm install`
+3. Install bower: `npm install -g bower`
+4. Install npm dependencies (reads from package.json): `npm install`
+5. Install bower dependencies (reads from package.json): `bower install`
 
 Once installed, type `gulp` in the Terminal to spawn a local development server and watch / compile changes. Source files found in `src/`; compiled files are built into `./dest/`
 
