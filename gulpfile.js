@@ -77,6 +77,7 @@ gulp.task('sass', ['symbols'], () => {
   .pipe($.sass({
     includePaths: [
       './src/assets/components',
+      './src/assets/components/bootstrap-sass/assets/stylesheets',
       './src/assets/styles',
       './src/assets/font-kit/dist/scss'
     ]

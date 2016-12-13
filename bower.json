@@ -16,14 +16,11 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "v4.0.0-alpha.2",
     "include-media": "^1.4.8",
     "lodash": "^4.16.6",
     "imagesloaded": "^4.1.1",
     "easing": "*",
-    "simpler-sidebar": "^2.1.4"
-  },
-  "resolutions": {
-    "jquery": "1.9.1 - 2"
+    "simpler-sidebar": "^2.1.4",
+    "bootstrap-sass": "3.3.4"
   }
 }
